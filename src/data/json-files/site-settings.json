@@ -1,0 +1,13 @@
+{
+	"seo": {
+		"title": "Daniel Silva Yañez– Musiker & Sänger für Events",
+		"description": "Professioneller Musiker und Sänger für Firmenfeiern, Kindergeburtstage, Hochzeiten und private Veranstaltungen. Live-Musik mit Gefühl und Leidenschaft – buchen Sie Daniel Silva Yañez für Ihr Event."
+	},
+	"hero": {
+		"type": "video",
+		"imageSrc": "/hero/hero-image-primary.png",
+		"imageAlt": "Milo Astro Theme",
+		"videoSrc": "/videos/hero-video-primary.mp4",
+		"videoPoster": "/hero/hero-image-primary.png"
+	}
+}
