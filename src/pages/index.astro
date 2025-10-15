@@ -27,6 +27,9 @@ const sortedCaseStudies = allCaseStudies.sort(
 // Load settings
 import siteSettings from '../data/json-files/site-settings.json'
 const { seo, hero } = siteSettings
+
+// Import hero image
+import heroImage from '../../public/hero/daniel_portrait.jpg'
 ---
 
 <Layout title={seo.title} description={seo.description} navigation="sticky">
@@ -38,7 +41,7 @@ const { seo, hero } = siteSettings
 				{
 					hero.type === 'image' ? (
 						<Image
-							src={hero.imageSrc}
+							src={heroImage}
 							alt={hero.imageAlt}
 							width={500}
 							height={500}
@@ -48,7 +51,7 @@ const { seo, hero } = siteSettings
 						/>
 					) : (
 						<Image
-							src={hero.imageSrc}
+							src={heroImage}
 							alt={hero.imageAlt}
 							width={500}
 							height={500}
