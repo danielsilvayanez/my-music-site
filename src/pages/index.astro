@@ -11,7 +11,6 @@ import Testimonial from '../components/ui/Testimonial.astro'
 import Button from '../components/ui/Button.astro'
 import CaseStudyCard from '../components/ui/cards/CaseStudyCard.astro'
 import { Icon } from 'astro-icon/components'
-import { Image } from 'astro:assets'
 
 import experienceData from '../data/json-files/experienceData.json'
 import testimonialData from '../data/json-files/testimonialData.json'
@@ -27,9 +26,6 @@ const sortedCaseStudies = allCaseStudies.sort(
 // Load settings
 import siteSettings from '../data/json-files/site-settings.json'
 const { seo, hero } = siteSettings
-
-// Import hero image
-import heroImage from '../../public/hero/daniel_portrait.jpg'
 ---
 
 <Layout title={seo.title} description={seo.description} navigation="sticky">
@@ -40,23 +36,21 @@ import heroImage from '../../public/hero/daniel_portrait.jpg'
 			<Col span="10" spanMobile="4">
 				{
 					hero.type === 'image' ? (
-						<Image
-							src={heroImage}
+						<img
+							src={hero.imageSrc}
 							alt={hero.imageAlt}
-							width={500}
-							height={500}
+							width="500"
+							height="500"
 							class="animate absolute -left-40 -top-56 size-80 rounded-full object-cover md:-left-72 md:-top-44 md:size-[31.25rem]"
-							format="webp"
 							loading="eager"
 						/>
 					) : (
-						<Image
-							src={heroImage}
+						<img
+							src={hero.imageSrc}
 							alt={hero.imageAlt}
-							width={500}
-							height={500}
+							width="500"
+							height="500"
 							class="animate absolute -left-40 -top-56 size-80 rounded-full object-cover md:-left-72 md:-top-44 md:size-[31.25rem]"
-							format="webp"
 							loading="eager"
 						/>
 						// <video
