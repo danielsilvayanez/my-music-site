@@ -4,13 +4,11 @@
 		{ "name": "Experience", "link": "#experience" },
 		{ "name": "Skills & Tools", "link": "#skills" },
 		{ "name": "Feedback", "link": "#feedback" },
-		{ "name": "Case Studies", "link": "#case-studies" },
 		{ "name": "Contact", "link": "#contact" },
 		{ "name": "Demos", "link": "/demos" }
 	],
 	"caseStudies": [
 		{ "name": "Home", "link": "/" },
-		{ "name": "Case Studies", "link": "#case-studies" },
 		{ "name": "Contact", "link": "#contact" },
 		{ "name": "Demos", "link": "/demos" }
 	],

@@ -1,23 +1,51 @@
 [
 	{
-		"title": "Senior Front-End Developer",
-		"date": "2023 - 2025",
-		"company": "Studio Forma People",
-		"location": "Remote",
-		"text": "<p>At Studio Forma, I lead front-end development for a variety of fast-paced client projects, focusing on performance, accessibility, and scalable design systems.</p><ul><li>Designed and developed websites for SaaS startups, agencies, and creatives.</li><li>Specialized in performant, accessible layouts using Astro, React, and Tailwind.</li><li>Created custom design systems and component libraries for long-term scalability.</li></ul>"
+		"title": "Fortbildung zum Vocal Coach",
+		"date": "2025 - 2026",
+		"company": "Powervoice",
+		"location": "Hollenstedt",
+		"text": "<p>At Center Parcs Bispinger Heide, I performed a variety of musical acts, engaging with guests and enhancing their experience through entertainment.</p><ul><li>Performed live music sets for guests in various locations throughout the resort.</li><li>Collaborated with other entertainers to create a cohesive entertainment experience.</li><li>Engaged with guests to promote a fun and welcoming atmosphere.</li></ul>"
 	},
 	{
-		"title": "UI Designer & Webflow Developer",
-		"date": "2021 - 2023",
-		"company": "Glowhaus Creative",
-		"location": "New York, US",
+		"title": "Entertainer / Musiker",
+		"date": "2023 - 2025",
+		"company": "Center Parcs Bispinger Heide",
+		"location": "Bispingen, Germany",
+		"text": "<p>At Center Parcs Bispinger Heide, I performed a variety of musical acts, engaging with guests and enhancing their experience through entertainment.</p><ul><li>Performed live music sets for guests in various locations throughout the resort.</li><li>Collaborated with other entertainers to create a cohesive entertainment experience.</li><li>Engaged with guests to promote a fun and welcoming atmosphere.</li></ul>"
+	},
+	{
+		"title": "Musical Rock of Ages (Hauptrolle)",
+		"date": "2022",
+		"company": "Musicalcompany Pinnberg",
+		"location": "Pinneberg",
 		"text": "<p>As part of the design team at Glowhaus, I worked closely with branding and strategy teams to bring visually rich, responsive websites to life.</p><ul><li>Led UI design for 15+ brand websites and marketing campaigns.</li><li>Developed responsive layouts in Webflow with custom interactions.</li><li>Collaborated closely with branding teams to elevate visual identity.</li></ul>"
 	},
 	{
-		"title": "Junior Web Designer & Content Creator",
-		"date": "2019 - 2021",
-		"company": "Blueframe Digital Inc",
-		"location": "Brooklyn, NY, US",
-		"text": "<p>I joined Blueframe as a junior designer, contributing to both internal and client projects while growing my front-end development skills.</p><ul><li>Created landing pages and eCommerce layouts for direct-to-consumer brands.</li><li>Supported senior designers and developers on cross-functional teams.</li><li>Contributed to WordPress theme styling and mobile-first design improvements.</li></ul>"
+		"title": "Musical Shrek (Hauptrolle)",
+		"date": "2019 & 2020",
+		"company": "Musicalcompany Pinnberg",
+		"location": "Pinneberg",
+		"text": "<p>As part of the design team at Glowhaus, I worked closely with branding and strategy teams to bring visually rich, responsive websites to life.</p><ul><li>Led UI design for 15+ brand websites and marketing campaigns.</li><li>Developed responsive layouts in Webflow with custom interactions.</li><li>Collaborated closely with branding teams to elevate visual identity.</li></ul>"
+	},
+	{
+		"title": "Musical Rent (Hauptrolle)",
+		"date": "2018",
+		"company": "Musicalcompany Pinnberg",
+		"location": "Pinneberg",
+		"text": "<p>As part of the design team at Glowhaus, I worked closely with branding and strategy teams to bring visually rich, responsive websites to life.</p><ul><li>Led UI design for 15+ brand websites and marketing campaigns.</li><li>Developed responsive layouts in Webflow with custom interactions.</li><li>Collaborated closely with branding teams to elevate visual identity.</li></ul>"
+	},
+	{
+		"title": "Musical Addams Family (Hauptrolle)",
+		"date": "2017",
+		"company": "Musicalcompany Pinnberg",
+		"location": "Pinneberg",
+		"text": "<p>As part of the design team at Glowhaus, I worked closely with branding and strategy teams to bring visually rich, responsive websites to life.</p><ul><li>Led UI design for 15+ brand websites and marketing campaigns.</li><li>Developed responsive layouts in Webflow with custom interactions.</li><li>Collaborated closely with branding teams to elevate visual identity.</li></ul>"
+	},
+	{
+		"title": "Musical Natürlich Blond (Nebenrolle)",
+		"date": "2016",
+		"company": "Musicalcompany Pinnberg",
+		"location": "Pinneberg",
+		"text": "<p>As part of the design team at Glowhaus, I worked closely with branding and strategy teams to bring visually rich, responsive websites to life.</p><ul><li>Led UI design for 15+ brand websites and marketing campaigns.</li><li>Developed responsive layouts in Webflow with custom interactions.</li><li>Collaborated closely with branding teams to elevate visual identity.</li></ul>"
 	}
 ]
