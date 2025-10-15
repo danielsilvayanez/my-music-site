@@ -5,9 +5,9 @@
 	},
 	"hero": {
 		"type": "video",
-		"imageSrc": "/hero/hero-image-primary.png",
+		"imageSrc": "/hero/daniel_portrait.jpg",
 		"imageAlt": "Milo Astro Theme",
-		"videoSrc": "/videos/hero-video-primary.mp4",
+		"videoSrc": "/videos/daniel_portrait.mov",
 		"videoPoster": "/hero/hero-image-primary.png"
 	}
 }

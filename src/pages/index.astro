@@ -47,14 +47,23 @@ const { seo, hero } = siteSettings
 							loading="eager"
 						/>
 					) : (
-						<video
-							autoplay
-							muted
-							poster={hero.videoPoster}
+						<Image
+							src={hero.imageSrc}
+							alt={hero.imageAlt}
+							width={500}
+							height={500}
 							class="animate absolute -left-40 -top-56 size-80 rounded-full object-cover md:-left-72 md:-top-44 md:size-[31.25rem]"
-						>
-							<source src={hero.videoSrc} type="video/mp4" />
-						</video>
+							format="webp"
+							loading="eager"
+						/>
+						// <video
+						// 	autoplay
+						// 	muted
+						// 	poster={hero.videoPoster}
+						// 	class="animate absolute -left-40 -top-56 size-80 rounded-full object-cover md:-left-72 md:-top-44 md:size-[31.25rem]"
+						// >
+						// 	<source src={hero.videoSrc} type="video/mp4" />
+						// </video>
 					)
 				}
 
@@ -84,28 +93,37 @@ const { seo, hero } = siteSettings
 	</Section>
 
 	<!-- About -->
-	<Section id="about">
-		<Row>
-			<Col span="2" spanMobile="4"><h2 class="lg:text-right">About me</h2></Col>
-			<Col span="10" spanMobile="4" classes="lg:columns-2 gap-9">
-				<p>
-					Musik hat mein Leben verändert – auch wenn ich sie erst später so richtig für mich
-					entdeckt habe. Mit der Gitarre fing alles an, bald kamen Gesang und Keyboard dazu. Vieles
-					habe ich mir selbst beigebracht, manches im Unterricht verfeinert. Doch am Ende war es vor
-					allem Fleiß, Ausdauer und unzählige Stunden Übung, die mich musikalisch weitergebracht
-					haben. Dabei gehört auch Mut dazu: Mut, Fehler zu machen, ins kalte Wasser zu springen und
-					niemals aufzugeben, wenn etwas nicht sofort klappt.
-				</p>
-				<p>
-					Genau das macht für mich den Weg in der Musik so wertvoll. Auf der Bühne zu stehen – ob
-					mit Bands, in Chören, bei Musicals oder als Entertainer – hat mir gezeigt, was Musik
-					bewirken kann. Sie schafft Verbindung zwischen Menschen, reißt uns aus dem Alltag heraus
-					und macht jeden Moment einzigartig. Für mich ist Musik eine Sprache, die alle verstehen.
-					Und genau diese Sprache möchte ich nutzen, um Herzen zu berühren und unvergessliche
-					Augenblicke zu schaffen.
-				</p>
-			</Col>
-		</Row>
+	<Section id="about" classes="!pt-5 text-left">
+		<div class="mx-auto mb-9 max-w-6xl">
+			<div class="relative aspect-video w-full overflow-hidden rounded-lg">
+				<iframe
+					class="absolute left-0 top-0 h-full w-full"
+					src="https://www.youtube.com/embed/rZz6CGNHtGE"
+					title="YouTube video player"
+					frameborder="0"
+					allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+					referrerpolicy="strict-origin-when-cross-origin"
+					allowfullscreen></iframe>
+			</div>
+		</div>
+		<div class="mx-auto max-w-4xl text-left lg:columns-2 lg:gap-9">
+			<p>
+				Musik hat mein Leben verändert – auch wenn ich sie erst später so richtig für mich entdeckt
+				habe. Mit der Gitarre fing alles an, bald kamen Gesang und Keyboard dazu. Vieles habe ich
+				mir selbst beigebracht, manches im Unterricht verfeinert. Doch am Ende war es vor allem
+				Fleiß, Ausdauer und unzählige Stunden Übung, die mich musikalisch weitergebracht haben.
+				Dabei gehört auch Mut dazu: Mut, Fehler zu machen, ins kalte Wasser zu springen und niemals
+				aufzugeben, wenn etwas nicht sofort klappt.
+			</p>
+			<p>
+				Genau das macht für mich den Weg in der Musik so wertvoll. Auf der Bühne zu stehen – ob mit
+				Bands, in Chören, bei Musicals oder als Entertainer – hat mir gezeigt, was Musik bewirken
+				kann. Sie schafft Verbindung zwischen Menschen, reißt uns aus dem Alltag heraus und macht
+				jeden Moment einzigartig. Für mich ist Musik eine Sprache, die alle verstehen. Und genau
+				diese Sprache möchte ich nutzen, um Herzen zu berühren und unvergessliche Augenblicke zu
+				schaffen.
+			</p>
+		</div>
 	</Section>
 
 	<!-- Experience -->
@@ -186,7 +204,7 @@ const { seo, hero } = siteSettings
 	</Section>
 
 	<!-- Case Studies -->
-	<Section id="case-studies">
+	<!-- <Section id="case-studies">
 		<Row classes="pb-6">
 			<Col span="2" spanMobile="4"><h2 class="lg:text-right">Case Studies</h2></Col>
 			<Col span="5" spanMobile="4">
@@ -226,5 +244,5 @@ const { seo, hero } = siteSettings
 				</div>
 			</Col>
 		</Row>
-	</Section>
+	</Section> -->
 </Layout>
