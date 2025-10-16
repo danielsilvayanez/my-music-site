@@ -12,6 +12,10 @@
 // Reference: https://wind-ui.com/components/navbars/
 
 // Content
+// - Components
+// - UI
+import ModeSwitcher from './ModeSwitcher.astro'
+
 // - Props
 type Props = {
 	type?: 'none' | 'sticky'
@@ -45,6 +49,9 @@ function isActivePath(currentPath: string): boolean {
 <header class:list={['header', { [`header--${type}`]: type }]}>
 	<div class="header__container">
 		<nav aria-label="main navigation" role="navigation" class="header__nav">
+			{/* Theme Switcher */}
+			<!-- <ModeSwitcher /> -->
+
 			{/* Menu toggle */}
 			<button
 				id="header-toggle"

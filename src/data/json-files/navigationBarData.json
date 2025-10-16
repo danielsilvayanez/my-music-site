@@ -9,6 +9,19 @@
 		{ "name": "Contact", "link": "#contact" },
 		{ "name": "Demos", "link": "/demos" }
 	],
+	"caseStudies": [
+		{ "name": "Home", "link": "/" },
+		{ "name": "Contact", "link": "#contact" },
+		{ "name": "Demos", "link": "/demos" }
+	],
+	"singleCaseStudy": [
+		{ "name": "Home", "link": "/" },
+		{ "name": "About the project", "link": "#about-the-project" },
+		{ "name": "What we did", "link": "#what-we-did" },
+		{ "name": "Client feedback", "link": "#client-feedback" },
+		{ "name": "Contact", "link": "#contact" },
+		{ "name": "Demos", "link": "/demos" }
+	],
 	"demos": [
 		{ "name": "Home Image Designers", "link": "/index-image" },
 		{ "name": "Home Video Designers", "link": "/index" },
