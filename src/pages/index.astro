@@ -41,7 +41,7 @@ const { seo, hero } = siteSettings
 							alt={hero.imageAlt}
 							width="500"
 							height="500"
-							class="animate absolute -left-40 -top-56 size-80 rounded-full object-cover md:-left-72 md:-top-44 md:size-[31.25rem]"
+							class="animate absolute -left-40 -top-32 size-80 rounded-full object-cover object-top md:-left-72 md:-top-24 md:size-[31.25rem]"
 							loading="eager"
 						/>
 					) : (
@@ -50,7 +50,7 @@ const { seo, hero } = siteSettings
 							alt={hero.imageAlt}
 							width="500"
 							height="500"
-							class="animate absolute -left-40 -top-56 size-80 rounded-full object-cover md:-left-72 md:-top-44 md:size-[31.25rem]"
+							class="animate absolute -left-40 -top-32 size-80 rounded-full object-cover object-top md:-left-72 md:-top-24 md:size-[31.25rem]"
 							loading="eager"
 						/>
 						// <video
@@ -90,12 +90,19 @@ const { seo, hero } = siteSettings
 	</Section>
 
 	<!-- About -->
-	<Section id="about" classes="!pt-5 text-left">
-		<div class="mx-auto mb-9 max-w-6xl">
-			<div class="relative aspect-video w-full overflow-hidden rounded-lg">
+	<Section id="about" classes="!pt-8 text-left">
+		<div class="mx-auto mb-10 max-w-5xl">
+			<!-- Videokarte: clean, ohne laute Muster, mit subtiler Tiefe -->
+			<div
+				class="relative aspect-video w-full overflow-hidden rounded-3xl bg-neutral-900 shadow-2xl ring-1 ring-black/10"
+			>
+				<div
+					class="pointer-events-none absolute inset-0 rounded-3xl bg-gradient-to-t from-black/10 to-transparent"
+				>
+				</div>
 				<iframe
-					class="absolute left-0 top-0 h-full w-full"
-					src="https://www.youtube.com/embed/rZz6CGNHtGE"
+					class="h-full w-full rounded-3xl"
+					src="https://www.youtube.com/embed/lx9tc0xUxTY"
 					title="YouTube video player"
 					frameborder="0"
 					allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
@@ -103,22 +110,21 @@ const { seo, hero } = siteSettings
 					allowfullscreen></iframe>
 			</div>
 		</div>
-		<div class="mx-auto max-w-4xl text-left lg:columns-2 lg:gap-9">
-			<p>
-				Musik hat mein Leben verändert – auch wenn ich sie erst später so richtig für mich entdeckt
+
+		<!-- Text: bessere Zeilenlänge + Spalten erst ab lg -->
+		<div class="mx-auto max-w-4xl text-left lg:gap-10">
+			<p class="mb-6 break-inside-avoid text-balance leading-relaxed lg:mb-0">
+				Musik hat mein Leben verändert - auch wenn ich sie erst später so richtig für mich entdeckt
 				habe. Mit der Gitarre fing alles an, bald kamen Gesang und Keyboard dazu. Vieles habe ich
 				mir selbst beigebracht, manches im Unterricht verfeinert. Doch am Ende war es vor allem
 				Fleiß, Ausdauer und unzählige Stunden Übung, die mich musikalisch weitergebracht haben.
 				Dabei gehört auch Mut dazu: Mut, Fehler zu machen, ins kalte Wasser zu springen und niemals
-				aufzugeben, wenn etwas nicht sofort klappt.
-			</p>
-			<p>
-				Genau das macht für mich den Weg in der Musik so wertvoll. Auf der Bühne zu stehen – ob mit
-				Bands, in Chören, bei Musicals oder als Entertainer – hat mir gezeigt, was Musik bewirken
-				kann. Sie schafft Verbindung zwischen Menschen, reißt uns aus dem Alltag heraus und macht
-				jeden Moment einzigartig. Für mich ist Musik eine Sprache, die alle verstehen. Und genau
-				diese Sprache möchte ich nutzen, um Herzen zu berühren und unvergessliche Augenblicke zu
-				schaffen.
+				aufzugeben, wenn etwas nicht sofort klappt. Genau das macht für mich den Weg in der Musik so
+				wertvoll. Auf der Bühne zu stehen – ob mit Bands, in Chören, bei Musicals oder als
+				Entertainer – hat mir gezeigt, was Musik bewirken kann. Sie schafft Verbindung zwischen
+				Menschen, reißt uns aus dem Alltag heraus und macht jeden Moment einzigartig. Für mich ist
+				Musik eine Sprache, die alle verstehen. Und genau diese Sprache möchte ich nutzen, um Herzen
+				zu berühren und unvergessliche Augenblicke zu schaffen.
 			</p>
 		</div>
 	</Section>
@@ -126,48 +132,47 @@ const { seo, hero } = siteSettings
 	<!-- Experience -->
 	<Section id="experience" classes="!overflow-visible">
 		<Row>
-			<Col span="2" spanMobile="4" classes="h-full"
-				><h2 class="sticky top-4 lg:text-right">Experience</h2></Col
-			>
-			<Col span="10" spanMobile="4"><Feed data={experienceData} /></Col>
+			<Col span="2" spanMobile="4" classes="h-full">
+				<h2 class="sticky top-4 pr-2 lg:pr-0 lg:text-right">Experience</h2>
+			</Col>
+			<Col span="10" spanMobile="4">
+				<div class="space-y-8">
+					<!-- optional: zarter Divider oben für Rhythmus -->
+					<div class="h-px bg-neutral-200/60"></div>
+					<Feed data={experienceData} />
+					<!-- zarter Divider unten, hält die Sektion zusammen -->
+					<div class="h-px bg-neutral-200/60"></div>
+				</div>
+			</Col>
 		</Row>
 	</Section>
 
 	<!-- Skills & Tools -->
-	<Section id="skills">
-		<Row>
-			<Col span="2" spanMobile="4"><h2 class="lg:text-right">Skills & Tools</h2></Col>
-			<Col span="5" spanMobile="4">
-				<p>
-					I'm a designer who loves crafting clean, modern, and user-friendly digital experiences…
-				</p>
-				<List
-					type="basic"
-					listItems={[
-						{ listItem: 'UI/UX Design' },
-						{ listItem: 'Design Systems' },
-						{ listItem: 'Motion & Microinteractions' },
-						{ listItem: 'Accessibility (WCAG)' },
-						{ listItem: 'Performance Optimization' }
-					]}
-					classes="ml-4"
-				/>
-			</Col>
-			<Col span="5" spanMobile="4">
-				<p>When I’m not designing, I’m usually sketching new ideas…</p>
-				<List
-					type="basic"
-					listItems={[
-						{ listItem: 'Figma & FigJam' },
-						{ listItem: 'Framer' },
-						{ listItem: 'Webflow' },
-						{ listItem: 'Astro / React / Tailwind CSS' }
-					]}
-					classes="ml-4"
-				/>
-			</Col>
-		</Row>
-	</Section>
+	<section id="skills" class="px-4 py-8">
+		<!-- Außenabstände der Sektion -->
+		<h2 class="mb-6 text-center text-2xl font-bold md:text-3xl">Skills &amp; Tools</h2>
+		<div class="mx-auto grid max-w-4xl grid-cols-1 gap-8 md:grid-cols-2">
+			<!-- Linke Spalte: Künstlerische Fähigkeiten -->
+			<ul class="list-outside list-disc space-y-2 pl-5 text-gray-700">
+				<li><strong>Live-Gesang</strong> (Genres: Rock, Pop, Musical, Schlager, Disney, Rap)</li>
+				<li>
+					<strong>Bühnenerfahrung Solist:</strong> 2&nbsp;Jahre im Center&nbsp;Parcs als Entertainer/Sänger
+				</li>
+				<li>
+					<strong>Soft&nbsp;Skills:</strong> Emotion, Energie, Publikumsnähe, Moderation, Tanz/Schauspiel
+				</li>
+			</ul>
+			<!-- Rechte Spalte: Technik & Tools -->
+			<ul class="list-outside list-disc space-y-2 pl-5 text-gray-700">
+				<li>
+					<strong>Technik &amp; Tools:</strong> Shure Mikrofon, Bose L1&nbsp;Pro16 (geplant), Laptop
+					mit Instrumentals
+				</li>
+				<li><strong>Fortbildung zum Vocal&nbsp;Coach:</strong> Powervoice (2025–2026)</li>
+				<li><strong>Perspektive:</strong> Vocal&nbsp;Coaching anbieten</li>
+			</ul>
+		</div>
+	</section>
 
 	<!-- Feedback -->
 	<Section id="feedback">
