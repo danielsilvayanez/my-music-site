@@ -8,20 +8,9 @@ import Feed from '../components/ui/Feeds/ExperienceFeed.astro'
 import List from '../components/ui/List.astro'
 import Slider from '../components/ui/Slider.astro'
 import Testimonial from '../components/ui/Testimonial.astro'
-import Button from '../components/ui/Button.astro'
-import CaseStudyCard from '../components/ui/cards/CaseStudyCard.astro'
-import { Icon } from 'astro-icon/components'
 
 import experienceData from '../data/json-files/experienceData.json'
 import testimonialData from '../data/json-files/testimonialData.json'
-
-import { getCollection } from 'astro:content'
-const allCaseStudies = await getCollection('caseStudiesDesign', ({ id }) => id)
-
-// Sort by pubDate desc
-const sortedCaseStudies = allCaseStudies.sort(
-	(a: any, b: any) => new Date(b.data.pubDate).getTime() - new Date(a.data.pubDate).getTime()
-)
 
 // Load settings
 import siteSettings from '../data/json-files/site-settings.json'
@@ -205,46 +194,54 @@ const { seo, hero } = siteSettings
 		</Row>
 	</Section>
 
-	<!-- Case Studies -->
-	<!-- <Section id="case-studies">
-		<Row classes="pb-6">
-			<Col span="2" spanMobile="4"><h2 class="lg:text-right">Case Studies</h2></Col>
-			<Col span="5" spanMobile="4">
-				<p class="m-0 w-full">
-					From SaaS landing pages to eCommerce stores and interactive web apps…
-				</p>
-			</Col>
-			<Col span="5" spanMobile="4" classes="lg:self-end lg:justify-self-end">
-				<Button
-					link="/case-studies-design"
-					type="link"
-					variation="link"
-					classes="lg:self-end lg:!justify-end w-full"
-				>
-					<span class="sr-only">View more case studies</span>
-					more <Icon name="long-arrow-right" />
-				</Button>
-			</Col>
-		</Row>
+	<!-- Prices -->
+	<Section id="prices">
 		<Row>
-			<Col span="2" />
+			<Col span="2" spanMobile="4">
+				<h2 class="lg:text-right">Preise</h2>
+			</Col>
 			<Col span="10" spanMobile="4">
-				<div class="grid grid-cols-1 gap-9 lg:grid-cols-3">
-					{
-						sortedCaseStudies.slice(0, 3).map((caseStudy: any) => (
-							<CaseStudyCard
-								link={`/case-studies-design/${caseStudy.id}`}
-								title={caseStudy.data.title}
-								image={caseStudy.data.cardImage}
-								greyImage={caseStudy.data.greyImage}
-								roles={caseStudy.data.roles}
-							>
-								{caseStudy.data.description}
-							</CaseStudyCard>
-						))
-					}
+				<div class="space-y-8">
+					<!-- Optional: divider for visual rhythm -->
+					<div class="h-px bg-neutral-200/60"></div>
+
+					<div class="prose prose-lg max-w-none dark:prose-invert">
+						<p class="text-balance leading-relaxed">
+							Jeder Auftritt ist einzigartig – und genau das sollten auch die Konditionen sein. Ob
+							Firmenfeier, Hochzeit, Geburtstag oder ein anderes Event: Ich erstelle dir gerne ein
+							individuelles Angebot, das genau auf deine Wünsche und Rahmenbedingungen zugeschnitten
+							ist.
+						</p>
+
+						<h3 class="mt-8 text-xl font-semibold">Was beeinflusst den Preis?</h3>
+						<ul class="list-outside list-disc space-y-2 pl-5">
+							<li><strong>Art der Veranstaltung</strong> – Private Feier, Firmenevent, Hochzeit etc.</li>
+							<li>
+								<strong>Dauer des Auftritts</strong> – Von 30 Minuten bis zu mehreren Stunden
+							</li>
+							<li><strong>Ort & Anfahrt</strong> – Entfernung und Erreichbarkeit des Veranstaltungsortes</li>
+							<li>
+								<strong>Technische Ausstattung</strong> – Nutze ich meine eigene Technik oder ist vor Ort
+								alles vorhanden?
+							</li>
+							<li>
+								<strong>Spezielle Wünsche</strong> – Bestimmte Songs, Setlisten oder musikalische
+								Schwerpunkte
+							</li>
+						</ul>
+
+						<h3 class="mt-8 text-xl font-semibold">Interessiert?</h3>
+						<p class="text-balance leading-relaxed">
+							Schreib mir einfach eine Nachricht mit ein paar Eckdaten zu deinem Event, und ich melde
+							mich schnellstmöglich mit einem unverbindlichen Angebot bei dir. Gemeinsam finden wir die
+							perfekte Lösung für deinen unvergesslichen Auftritt!
+						</p>
+					</div>
+
+					<!-- Optional: divider at the bottom -->
+					<div class="h-px bg-neutral-200/60"></div>
 				</div>
 			</Col>
 		</Row>
-	</Section> -->
+	</Section>
 </Layout>
