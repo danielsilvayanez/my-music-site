@@ -5,7 +5,6 @@ import Row from '../components/ui/Row.astro'
 import Col from '../components/ui/Col.astro'
 
 import Feed from '../components/ui/Feeds/ExperienceFeed.astro'
-import List from '../components/ui/List.astro'
 import Slider from '../components/ui/Slider.astro'
 import Testimonial from '../components/ui/Testimonial.astro'
 
@@ -137,31 +136,39 @@ const { seo, hero } = siteSettings
 	</Section>
 
 	<!-- Skills & Tools -->
-	<section id="skills" class="px-4 py-8">
-		<!-- Außenabstände der Sektion -->
-		<h2 class="mb-6 text-center text-2xl font-bold md:text-3xl">Skills &amp; Tools</h2>
-		<div class="mx-auto grid max-w-4xl grid-cols-1 gap-8 md:grid-cols-2">
-			<!-- Linke Spalte: Künstlerische Fähigkeiten -->
-			<ul class="list-outside list-disc space-y-2 pl-5 text-gray-700">
-				<li><strong>Live-Gesang</strong> (Genres: Rock, Pop, Musical, Schlager, Disney, Rap)</li>
-				<li>
-					<strong>Bühnenerfahrung Solist:</strong> 2&nbsp;Jahre im Center&nbsp;Parcs als Entertainer/Sänger
-				</li>
-				<li>
-					<strong>Soft&nbsp;Skills:</strong> Emotion, Energie, Publikumsnähe, Moderation, Tanz/Schauspiel
-				</li>
-			</ul>
-			<!-- Rechte Spalte: Technik & Tools -->
-			<ul class="list-outside list-disc space-y-2 pl-5 text-gray-700">
-				<li>
-					<strong>Technik &amp; Tools:</strong> Shure Mikrofon, Bose L1&nbsp;Pro16 (geplant), Laptop
-					mit Instrumentals
-				</li>
-				<li><strong>Fortbildung zum Vocal&nbsp;Coach:</strong> Powervoice (2025–2026)</li>
-				<li><strong>Perspektive:</strong> Vocal&nbsp;Coaching anbieten</li>
-			</ul>
-		</div>
-	</section>
+	<Section id="skills">
+		<Row>
+			<Col span="2" spanMobile="4">
+				<h2 class="lg:text-right">Skills & Tools</h2>
+			</Col>
+			<Col span="10" spanMobile="4">
+				<div class="space-y-8">
+					<!-- Optional: divider for visual rhythm -->
+					<div class="h-px bg-neutral-200/60"></div>
+
+					<div class="grid grid-cols-1 gap-8 md:grid-cols-2">
+						<!-- Linke Spalte: Künstlerische Fähigkeiten -->
+						<ul class="list-outside list-disc space-y-2 pl-5">
+							<li>Live-Gesang (Genres: Rock, Pop, Musical, Schlager, Disney, Rap)</li>
+							<li>Bühnenerfahrung Solist: 2 Jahre im Center Parcs als Entertainer/Sänger</li>
+							<li>Soft Skills: Emotion, Energie, Publikumsnähe, Moderation, Tanz/Schauspiel</li>
+						</ul>
+						<!-- Rechte Spalte: Technik & Tools -->
+						<ul class="list-outside list-disc space-y-2 pl-5">
+							<li>
+								Technik & Tools: Shure Mikrofon, Bose L1 Pro16 (geplant), Laptop mit Instrumentals
+							</li>
+							<li>Fortbildung zum Vocal Coach: Powervoice (2025–2026)</li>
+							<li>Perspektive: Vocal Coaching anbieten</li>
+						</ul>
+					</div>
+
+					<!-- Optional: divider at the bottom -->
+					<div class="h-px bg-neutral-200/60"></div>
+				</div>
+			</Col>
+		</Row>
+	</Section>
 
 	<!-- Feedback -->
 	<Section id="feedback">
@@ -173,6 +180,7 @@ const { seo, hero } = siteSettings
 					id="feedbackSlider"
 					delay={3500}
 					showNavigation={false}
+					showPagination={false}
 					centeredSlides={true}
 					initialSlide={0}
 				>
@@ -194,11 +202,47 @@ const { seo, hero } = siteSettings
 		</Row>
 	</Section>
 
+	<!-- Sound Samples -->
+	<Section id="sound-samples">
+		<Row>
+			<Col span="2" spanMobile="4">
+				<h2 class="lg:text-right">Sound Samples</h2>
+			</Col>
+			<Col span="10" spanMobile="4">
+				<div class="space-y-8">
+					<!-- Optional: divider for visual rhythm -->
+					<div class="h-px bg-neutral-200/60"></div>
+
+					<div class="prose prose-lg max-w-none dark:prose-invert">
+						<p class="text-balance leading-relaxed">
+							Hier findest du bald Hörproben von meinen Live-Auftritten und Studio-Aufnahmen. Lass
+							dich von verschiedenen Genres und Stilen inspirieren und höre, wie ich Musik zum Leben
+							erwecke.
+						</p>
+
+						<div class="mt-8 rounded-2xl border-2 border-dashed border-neutral-300 bg-neutral-50 p-12 text-center dark:border-neutral-700 dark:bg-neutral-900">
+							<p class="mb-4 text-lg font-medium text-neutral-600 dark:text-neutral-400">
+								Hörproben kommen bald!
+							</p>
+							<p class="text-sm text-neutral-500 dark:text-neutral-500">
+								Ich arbeite gerade daran, dir hier ausgewählte Sound-Samples zur Verfügung zu stellen.
+								Schau bald wieder vorbei oder kontaktiere mich direkt für Referenzen.
+							</p>
+						</div>
+					</div>
+
+					<!-- Optional: divider at the bottom -->
+					<div class="h-px bg-neutral-200/60"></div>
+				</div>
+			</Col>
+		</Row>
+	</Section>
+
 	<!-- Prices -->
 	<Section id="prices">
 		<Row>
 			<Col span="2" spanMobile="4">
-				<h2 class="lg:text-right">Preise</h2>
+				<h2 class="lg:text-right">Prices</h2>
 			</Col>
 			<Col span="10" spanMobile="4">
 				<div class="space-y-8">
@@ -215,26 +259,29 @@ const { seo, hero } = siteSettings
 
 						<h3 class="mt-8 text-xl font-semibold">Was beeinflusst den Preis?</h3>
 						<ul class="list-outside list-disc space-y-2 pl-5">
-							<li><strong>Art der Veranstaltung</strong> – Private Feier, Firmenevent, Hochzeit etc.</li>
+							<li>
+								<strong>Art der Veranstaltung</strong> – Private Feier, Firmenevent, Hochzeit etc.
+							</li>
 							<li>
 								<strong>Dauer des Auftritts</strong> – Von 30 Minuten bis zu mehreren Stunden
 							</li>
-							<li><strong>Ort & Anfahrt</strong> – Entfernung und Erreichbarkeit des Veranstaltungsortes</li>
 							<li>
-								<strong>Technische Ausstattung</strong> – Nutze ich meine eigene Technik oder ist vor Ort
-								alles vorhanden?
+								<strong>Ort & Anfahrt</strong> – Entfernung und Erreichbarkeit des Veranstaltungsortes
 							</li>
 							<li>
-								<strong>Spezielle Wünsche</strong> – Bestimmte Songs, Setlisten oder musikalische
-								Schwerpunkte
+								<strong>Technische Ausstattung</strong> – Nutze ich meine eigene Technik oder ist vor
+								Ort alles vorhanden?
+							</li>
+							<li>
+								<strong>Spezielle Wünsche</strong> – Bestimmte Songs, Setlisten oder musikalische Schwerpunkte
 							</li>
 						</ul>
 
 						<h3 class="mt-8 text-xl font-semibold">Interessiert?</h3>
 						<p class="text-balance leading-relaxed">
-							Schreib mir einfach eine Nachricht mit ein paar Eckdaten zu deinem Event, und ich melde
-							mich schnellstmöglich mit einem unverbindlichen Angebot bei dir. Gemeinsam finden wir die
-							perfekte Lösung für deinen unvergesslichen Auftritt!
+							Schreib mir einfach unten eine Nachricht mit ein paar Eckdaten zu deinem Event, und
+							ich melde mich schnellstmöglich mit einem unverbindlichen Angebot bei dir. Gemeinsam
+							finden wir die perfekte Lösung für deinen unvergesslichen Auftritt!
 						</p>
 					</div>
 

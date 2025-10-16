@@ -12,10 +12,6 @@
 // Reference: https://wind-ui.com/components/navbars/
 
 // Content
-// - Components
-// - UI
-import ModeSwitcher from './ModeSwitcher.astro'
-
 // - Props
 type Props = {
 	type?: 'none' | 'sticky'
@@ -29,14 +25,14 @@ import navigationData from '../../data/json-files/navigationBarData.json'
 // Get the current page path
 const path = new URL(Astro.request.url).pathname
 // Define types for navigation items and categories
-type NavType = 'home' | 'demos'
+type NavType = 'home' | 'caseStudies'
 // Initialize default navigation type
 let navType: NavType = 'home'
 // Determine the appropriate navigation type based on the current path
 if (path === '/' || path.startsWith('/index')) {
 	navType = 'home'
-} else if (path.startsWith('/demos')) {
-	navType = 'demos'
+} else if (path.startsWith('/case-studies')) {
+	navType = 'caseStudies'
 }
 // Get the navigation items for the current category
 const navItems = navigationData[navType]
@@ -49,9 +45,6 @@ function isActivePath(currentPath: string): boolean {
 <header class:list={['header', { [`header--${type}`]: type }]}>
 	<div class="header__container">
 		<nav aria-label="main navigation" role="navigation" class="header__nav">
-			{/* Theme Switcher */}
-			<!-- <ModeSwitcher /> -->
-
 			{/* Menu toggle */}
 			<button
 				id="header-toggle"
@@ -76,7 +69,7 @@ function isActivePath(currentPath: string): boolean {
 									href={item.link}
 									role="menuitem"
 									class={`header__menu-link font-headings ${isActivePath(item.link) ? 'active' : ''}`}
-									style={{ '--index': index }}
+									style={`--index: ${index}`}
 								>
 									{item.name}
 								</a>
