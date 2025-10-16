@@ -69,8 +69,8 @@
 </script>
 
 <!-- Menu Dropdown -->
-<script async defer>
-	document.addEventListener('astro:page-load', () => {
+<script>
+	function initMenuToggle() {
 		// Menu Dropdown
 		const menuItems = document.querySelectorAll('.header__menu-item')
 		menuItems.forEach((menuItem) => {
@@ -95,19 +95,47 @@
 			})
 		})
 
-		// Menu toggle
+		// Menu toggle - Enhanced for iOS compatibility
 		const headerToggle = document.querySelector('.header__toggle')
 		const headerMenu = document.querySelector('.header__menu')
+
 		if (headerToggle && headerMenu) {
-			headerToggle.addEventListener('click', () => {
+			// Function to toggle menu
+			const toggleMenu = (event) => {
+				event.preventDefault()
+				event.stopPropagation()
+
 				headerToggle.classList.toggle('header__toggle--open')
 				const isExpanded = headerToggle.getAttribute('aria-expanded') === 'true'
 				const newExpandedValue = isExpanded ? 'false' : 'true'
 				headerToggle.setAttribute('aria-expanded', newExpandedValue)
 				headerMenu.classList.toggle('header__menu--open')
-			})
+			}
+
+			// Add both click and touchstart events for better iOS support
+			headerToggle.addEventListener('click', toggleMenu)
+			headerToggle.addEventListener('touchstart', (e) => {
+				// Prevent double-firing on iOS
+				e.preventDefault()
+				toggleMenu(e)
+			}, { passive: false })
+
+			// Make button explicitly tappable on iOS
+			headerToggle.style.cursor = 'pointer'
+			headerToggle.style.webkitTapHighlightColor = 'transparent'
 		}
-	})
+	}
+
+	// Initialize immediately
+	if (document.readyState === 'loading') {
+		document.addEventListener('DOMContentLoaded', initMenuToggle)
+	} else {
+		initMenuToggle()
+	}
+
+	// Re-initialize on Astro page transitions
+	document.addEventListener('astro:page-load', initMenuToggle)
+	document.addEventListener('astro:after-swap', initMenuToggle)
 </script>
 
 <!-- Menu Close -->
