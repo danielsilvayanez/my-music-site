@@ -85,7 +85,7 @@
 			}
 		})
 		document.addEventListener('click', function (event) {
-			const target = event.target
+			const target = event.target as Node
 
 			menuItems.forEach((menuItem) => {
 				const submenu = menuItem.querySelector('.header__submenu')
@@ -101,7 +101,7 @@
 
 		if (headerToggle && headerMenu) {
 			// Function to toggle menu
-			const toggleMenu = (event) => {
+			const toggleMenu = (event: Event) => {
 				event.preventDefault()
 				event.stopPropagation()
 
@@ -120,9 +120,12 @@
 				toggleMenu(e)
 			}, { passive: false })
 
-			// Make button explicitly tappable on iOS
-			headerToggle.style.cursor = 'pointer'
-			headerToggle.style.webkitTapHighlightColor = 'transparent'
+			// Make button explicitly tappable on iOS - cast to HTMLElement
+			if (headerToggle instanceof HTMLElement) {
+				headerToggle.style.cursor = 'pointer'
+				// @ts-ignore - webkitTapHighlightColor is a webkit-specific property
+				headerToggle.style.webkitTapHighlightColor = 'transparent'
+			}
 		}
 	}
 
