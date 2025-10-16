@@ -21,13 +21,13 @@ export interface Config {
 }
 
 export const configData: Config = {
-	siteTitle: 'Milo – Personal Resume & Portfolio Theme Built with Astro by Oxygenna',
+	siteTitle: 'Daniel Silva Yañez – Musiker & Sänger für Events',
 	siteDescription:
-		'Milo is a fast, elegant, and accessible Astro theme built to showcase your resume, projects, and skills. Ideal for creating a personal portfolio or professional profile site.',
-	ogImage: '/og.jpg',
+		'Professioneller Musiker und Sänger für Firmenfeiern, Kindergeburtstage, Hochzeiten und private Veranstaltungen. Live-Musik mit Gefühl und Leidenschaft – buchen Sie Daniel Silva Yañez für Ihr Event.',
+	ogImage: '/hero/daniel-silva-yañez-musiker-sänger.jpg',
 	logo: {
 		src: '/logo.svg',
-		alt: 'Milo logo'
+		alt: 'Daniel Silva Yañez Logo'
 	},
 	canonical: true,
 	noindex: false,
