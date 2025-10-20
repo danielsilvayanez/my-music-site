@@ -29,14 +29,14 @@ import navigationData from '../../data/json-files/navigationBarData.json'
 // Get the current page path
 const path = new URL(Astro.request.url).pathname
 // Define types for navigation items and categories
-type NavType = 'home' | 'caseStudies'
+type NavType = 'home' | 'demos'
 // Initialize default navigation type
 let navType: NavType = 'home'
 // Determine the appropriate navigation type based on the current path
 if (path === '/' || path.startsWith('/index')) {
 	navType = 'home'
-} else if (path.startsWith('/case-studies')) {
-	navType = 'caseStudies'
+} else if (path.startsWith('/demos')) {
+	navType = 'demos'
 }
 // Get the navigation items for the current category
 const navItems = navigationData[navType]
@@ -118,7 +118,7 @@ function isActivePath(currentPath: string): boolean {
 		@apply relative flex translate-y-[0.625rem] items-center justify-center gap-1 py-4 text-left text-2xl opacity-0 transition-colors duration-300 hover:text-primary-400 focus:text-primary-500 focus:outline-none focus-visible:outline-none lg:text-4xl lg:leading-[60px] dark:hover:text-secondary-500 dark:focus:text-secondary-600 [&.active]:text-primary-400 dark:[&.active]:text-secondary-500;
 	}
 	.header__toggle {
-		@apply relative order-10 block h-16 w-16 origin-center self-center;
+		@apply relative order-10 z-50 block h-16 w-16 origin-center self-center;
 		/* iOS Safari touch target improvements */
 		-webkit-tap-highlight-color: transparent;
 		cursor: pointer;
@@ -126,13 +126,13 @@ function isActivePath(currentPath: string): boolean {
 		user-select: none;
 	}
 	.header__toggle-backdrop {
-		@apply fixed right-6 top-3 z-[-1] size-16 rounded-full bg-white/80 object-center backdrop-blur-sm transition-all duration-700 dark:bg-neutral-950/80 [.header\_\_toggle--open_&]:scale-[150] [.mode-dark_&]:bg-neutral-950/80 [.mode-light_&]:bg-white/80;
+		@apply fixed right-6 top-3 z-40 size-16 rounded-full bg-white/80 object-center backdrop-blur-sm transition-all duration-700 dark:bg-neutral-950/80 [.header\_\_toggle--open_&]:scale-[150] [.mode-dark_&]:bg-neutral-950/80 [.mode-light_&]:bg-white/80;
 	}
 	.header__toggle--open {
 		@apply after:scale-[100];
 	}
 	.header__toggle-inner {
-		@apply absolute left-1/2 top-1/2 w-6 -translate-x-1/2 -translate-y-1/2 transform;
+		@apply absolute left-1/2 top-1/2 z-10 w-6 -translate-x-1/2 -translate-y-1/2 transform;
 	}
 	.header__toggle-inner span {
 		@apply absolute block h-0.5 transform rounded-full bg-neutral-600 transition-all duration-300 dark:bg-white;
