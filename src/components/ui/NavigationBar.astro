@@ -103,7 +103,7 @@ function isActivePath(currentPath: string): boolean {
 		@apply flex h-[5.5rem] items-stretch justify-end gap-6 font-medium text-neutral-700 dark:text-neutral-50;
 	}
 	.header__menu {
-		@apply invisible fixed left-0 top-0 ml-auto h-dvh w-dvw justify-center overflow-hidden overscroll-contain pt-20 font-medium opacity-0 transition-[opacity,visibility] duration-300 [&_ul]:pb-6 [&_ul]:lg:pb-24;
+		@apply invisible fixed left-0 top-0 ml-auto h-dvh w-dvw justify-center overflow-hidden overscroll-contain pt-20 font-medium opacity-0 transition-[opacity,visibility] duration-300 [&_ul]:pb-6 lg:visible lg:relative lg:h-auto lg:w-auto lg:justify-end lg:overflow-visible lg:pt-0 lg:opacity-100 [&_ul]:lg:flex [&_ul]:lg:flex-row [&_ul]:lg:gap-6 [&_ul]:lg:pb-0;
 	}
 	.header__menu--open {
 		@apply visible opacity-100 [&_.header\_\_menu-link]:animate-fadeIn;
@@ -115,27 +115,22 @@ function isActivePath(currentPath: string): boolean {
 		@apply relative flex cursor-pointer flex-col items-stretch;
 	}
 	.header__menu-link {
-		@apply relative flex translate-y-[0.625rem] items-center justify-center gap-1 py-4 text-left text-2xl opacity-0 transition-colors duration-300 hover:text-primary-400 focus:text-primary-500 focus:outline-none focus-visible:outline-none lg:text-4xl lg:leading-[60px] dark:hover:text-secondary-500 dark:focus:text-secondary-600 [&.active]:text-primary-400 dark:[&.active]:text-secondary-500;
+		@apply relative flex translate-y-[0.625rem] items-center justify-center gap-1 py-4 text-left text-2xl opacity-0 transition-colors duration-300 hover:text-primary-400 focus:text-primary-500 focus:outline-none focus-visible:outline-none lg:translate-y-0 lg:text-base lg:opacity-100 dark:hover:text-secondary-500 dark:focus:text-secondary-600 [&.active]:text-primary-400 dark:[&.active]:text-secondary-500;
 	}
 	.header__toggle {
-		@apply relative order-10 z-50 block h-16 w-16 origin-center self-center;
-		/* iOS Safari touch target improvements */
-		-webkit-tap-highlight-color: transparent;
-		cursor: pointer;
-		touch-action: manipulation;
-		user-select: none;
+		@apply relative order-10 block h-16 w-16 origin-center self-center lg:hidden;
 	}
 	.header__toggle-backdrop {
-		@apply fixed right-6 top-3 z-40 size-16 rounded-full bg-white/80 object-center backdrop-blur-sm transition-all duration-700 dark:bg-neutral-950/80 [.header\_\_toggle--open_&]:scale-[150] [.mode-dark_&]:bg-neutral-950/80 [.mode-light_&]:bg-white/80;
+		@apply fixed right-6 top-3 z-[-1] size-16 rounded-full bg-white/80 object-center backdrop-blur-sm transition-all duration-700 dark:bg-neutral-950/80 lg:hidden [.header\_\_toggle--open_&]:scale-[150] [.mode-dark_&]:bg-neutral-950/80 [.mode-light_&]:bg-white/80;
 	}
 	.header__toggle--open {
 		@apply after:scale-[100];
 	}
 	.header__toggle-inner {
-		@apply absolute left-1/2 top-1/2 z-10 w-6 -translate-x-1/2 -translate-y-1/2 transform;
+		@apply absolute left-1/2 top-1/2 w-6 -translate-x-1/2 -translate-y-1/2 transform;
 	}
 	.header__toggle-inner span {
-		@apply absolute block h-0.5 transform rounded-full bg-neutral-600 transition-all duration-300 dark:bg-white;
+		@apply absolute block h-0.5 transform rounded-full bg-neutral-900 transition-all duration-300 dark:bg-white;
 	}
 	.header__toggle-inner span:nth-child(1) {
 		@apply w-9/12 -translate-y-2 [.header\_\_toggle--open_&]:w-6 [.header\_\_toggle--open_&]:translate-y-0 [.header\_\_toggle--open_&]:rotate-45;

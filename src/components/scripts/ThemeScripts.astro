@@ -99,9 +99,13 @@
 		const headerToggle = document.querySelector('.header__toggle')
 		const headerMenu = document.querySelector('.header__menu')
 
+		console.log('Menu toggle init:', { headerToggle, headerMenu })
+
 		if (headerToggle && headerMenu) {
+			console.log('Adding event listeners to toggle button')
 			// Function to toggle menu
 			const toggleMenu = (event: Event) => {
+				console.log('Toggle menu clicked!')
 				event.preventDefault()
 				event.stopPropagation()
 
@@ -110,6 +114,10 @@
 				const newExpandedValue = isExpanded ? 'false' : 'true'
 				headerToggle.setAttribute('aria-expanded', newExpandedValue)
 				headerMenu.classList.toggle('header__menu--open')
+				console.log('Menu toggled. Classes:', {
+					toggle: headerToggle.className,
+					menu: headerMenu.className
+				})
 			}
 
 			// Add both click and touchstart events for better iOS support
