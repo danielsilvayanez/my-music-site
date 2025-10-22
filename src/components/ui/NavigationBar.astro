@@ -29,14 +29,16 @@ import navigationData from '../../data/json-files/navigationBarData.json'
 // Get the current page path
 const path = new URL(Astro.request.url).pathname
 // Define types for navigation items and categories
-type NavType = 'home' | 'demos'
+type NavType = 'home' | 'caseStudies' | 'singleCaseStudy'
 // Initialize default navigation type
 let navType: NavType = 'home'
 // Determine the appropriate navigation type based on the current path
 if (path === '/' || path.startsWith('/index')) {
 	navType = 'home'
-} else if (path.startsWith('/demos')) {
-	navType = 'demos'
+} else if (/^\/case-studies-(design|code)(\/)?$/.test(path)) {
+	navType = 'caseStudies'
+} else if (/^\/case-studies-(design|code)\/.+/.test(path)) {
+	navType = 'singleCaseStudy'
 }
 // Get the navigation items for the current category
 const navItems = navigationData[navType]
@@ -119,6 +121,9 @@ function isActivePath(currentPath: string): boolean {
 	}
 	.header__toggle {
 		@apply relative order-10 block h-16 w-16 origin-center self-center lg:hidden;
+		cursor: pointer;
+		-webkit-tap-highlight-color: transparent;
+		touch-action: manipulation;
 	}
 	.header__toggle-backdrop {
 		@apply fixed right-6 top-3 z-[-1] size-16 rounded-full bg-white/80 object-center backdrop-blur-sm transition-all duration-700 dark:bg-neutral-950/80 lg:hidden [.header\_\_toggle--open_&]:scale-[150] [.mode-dark_&]:bg-neutral-950/80 [.mode-light_&]:bg-white/80;

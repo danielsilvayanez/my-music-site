@@ -69,8 +69,8 @@
 </script>
 
 <!-- Menu Dropdown -->
-<script>
-	function initMenuToggle() {
+<script async defer>
+	document.addEventListener('astro:page-load', () => {
 		// Menu Dropdown
 		const menuItems = document.querySelectorAll('.header__menu-item')
 		menuItems.forEach((menuItem) => {
@@ -85,7 +85,7 @@
 			}
 		})
 		document.addEventListener('click', function (event) {
-			const target = event.target as Node
+			const target = event.target
 
 			menuItems.forEach((menuItem) => {
 				const submenu = menuItem.querySelector('.header__submenu')
@@ -95,58 +95,26 @@
 			})
 		})
 
-		// Menu toggle - Enhanced for iOS compatibility
+		// Menu toggle
 		const headerToggle = document.querySelector('.header__toggle')
 		const headerMenu = document.querySelector('.header__menu')
-
-		console.log('Menu toggle init:', { headerToggle, headerMenu })
-
 		if (headerToggle && headerMenu) {
-			console.log('Adding event listeners to toggle button')
-			// Function to toggle menu
-			const toggleMenu = (event: Event) => {
-				console.log('Toggle menu clicked!')
-				event.preventDefault()
-				event.stopPropagation()
-
+			const toggleMenu = () => {
 				headerToggle.classList.toggle('header__toggle--open')
 				const isExpanded = headerToggle.getAttribute('aria-expanded') === 'true'
 				const newExpandedValue = isExpanded ? 'false' : 'true'
 				headerToggle.setAttribute('aria-expanded', newExpandedValue)
 				headerMenu.classList.toggle('header__menu--open')
-				console.log('Menu toggled. Classes:', {
-					toggle: headerToggle.className,
-					menu: headerMenu.className
-				})
 			}
 
-			// Add both click and touchstart events for better iOS support
+			// Add both click and touchend for better iOS support
 			headerToggle.addEventListener('click', toggleMenu)
-			headerToggle.addEventListener('touchstart', (e) => {
-				// Prevent double-firing on iOS
+			headerToggle.addEventListener('touchend', (e) => {
 				e.preventDefault()
-				toggleMenu(e)
-			}, { passive: false })
-
-			// Make button explicitly tappable on iOS - cast to HTMLElement
-			if (headerToggle instanceof HTMLElement) {
-				headerToggle.style.cursor = 'pointer'
-				// @ts-ignore - webkitTapHighlightColor is a webkit-specific property
-				headerToggle.style.webkitTapHighlightColor = 'transparent'
-			}
+				toggleMenu()
+			})
 		}
-	}
-
-	// Initialize immediately
-	if (document.readyState === 'loading') {
-		document.addEventListener('DOMContentLoaded', initMenuToggle)
-	} else {
-		initMenuToggle()
-	}
-
-	// Re-initialize on Astro page transitions
-	document.addEventListener('astro:page-load', initMenuToggle)
-	document.addEventListener('astro:after-swap', initMenuToggle)
+	})
 </script>
 
 <!-- Menu Close -->
