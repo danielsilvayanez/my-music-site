@@ -14,7 +14,7 @@ export interface Config {
 	siteDescription: string
 	ogImage: string
 	logo: Logo
-	canonical: boolean
+	siteUrl: string
 	noindex: boolean
 	mode: Mode
 	scrollAnimations: boolean
@@ -23,13 +23,13 @@ export interface Config {
 export const configData: Config = {
 	siteTitle: 'Daniel Silva Yañez – Musiker & Sänger für Events',
 	siteDescription:
-		'Professioneller Musiker und Sänger für Firmenfeiern, Kindergeburtstage, Hochzeiten und private Veranstaltungen. Live-Musik mit Gefühl und Leidenschaft – buchen Sie Daniel Silva Yañez für Ihr Event.',
+		'Professioneller Musiker und Sänger für Firmenfeiern, Kindergeburtstage, Hochzeiten und private Veranstaltungen.',
 	ogImage: '/hero/daniel-silva-yañez-musiker-sänger.jpg',
 	logo: {
 		src: '/logo.svg',
 		alt: 'Daniel Silva Yañez Logo'
 	},
-	canonical: true,
+	siteUrl: 'https://DEINE-DOMAIN.de', // später echte Domain einsetzen
 	noindex: false,
 	mode: 'auto',
 	scrollAnimations: true
