@@ -68,120 +68,45 @@
 	document.addEventListener('astro:after-swap', initTheme)
 </script>
 
-<!-- Menu Dropdown -->
-<script async defer>
-	document.addEventListener('astro:page-load', () => {
-		// Menu Dropdown
-		const menuItems = document.querySelectorAll('.header__menu-item')
-		menuItems.forEach((menuItem) => {
-			const submenu = menuItem.querySelector('.header__submenu')
-			const link = menuItem.querySelector('.header__menu-link')
-
-			if (submenu && link) {
-				link.addEventListener('click', function (event) {
-					event.preventDefault()
-					menuItem.classList.toggle('open')
-				})
-			}
-		})
-		document.addEventListener('click', function (event) {
-			const target = event.target
-
-			menuItems.forEach((menuItem) => {
-				const submenu = menuItem.querySelector('.header__submenu')
-				if (submenu && !menuItem.contains(target)) {
-					menuItem.classList.remove('open')
-				}
-			})
-		})
-
-		// Menu toggle
-		const headerToggle = document.querySelector('.header__toggle')
-		const headerMenu = document.querySelector('.header__menu')
-		if (headerToggle && headerMenu) {
-			const toggleMenu = () => {
-				headerToggle.classList.toggle('header__toggle--open')
-				const isExpanded = headerToggle.getAttribute('aria-expanded') === 'true'
-				const newExpandedValue = isExpanded ? 'false' : 'true'
-				headerToggle.setAttribute('aria-expanded', newExpandedValue)
-				headerMenu.classList.toggle('header__menu--open')
-			}
-
-			// Add both click and touchend for better iOS support
-			headerToggle.addEventListener('click', toggleMenu)
-			headerToggle.addEventListener('touchend', (e) => {
-				e.preventDefault()
-				toggleMenu()
-			})
-		}
-	})
-</script>
-
-<!-- Menu Close -->
+<!-- Mobile Menu Toggle -->
 <script>
-	// Function to close all menus
-	function closeAllMenus() {
-		// Remove 'open' class from all menu items
-		document.querySelectorAll('.header__menu-item').forEach((item) => {
-			item.classList.remove('open')
+	function initMobileMenu() {
+		const toggle = document.getElementById('mobile-menu-toggle')
+		const menu = document.getElementById('mobile-menu')
+		const menuLinks = document.querySelectorAll('.mobile-nav-link')
+
+		if (!toggle || !menu) return
+
+		// Toggle menu
+		toggle.addEventListener('click', () => {
+			const isOpen = menu.classList.contains('open')
+			if (isOpen) {
+				menu.classList.remove('open')
+				toggle.classList.remove('active')
+				toggle.setAttribute('aria-expanded', 'false')
+			} else {
+				menu.classList.add('open')
+				toggle.classList.add('active')
+				toggle.setAttribute('aria-expanded', 'true')
+			}
 		})
-		// Close mobile menu if open
-		const menu = document.querySelector('.header__menu')
-		const toggle = document.getElementById('header-toggle')
-		if (menu && toggle && menu.classList.contains('header__menu--open')) {
-			menu.classList.remove('header__menu--open')
-			toggle.classList.remove('header__toggle--open')
-			toggle.setAttribute('aria-expanded', 'false')
-		}
-	}
 
-	// Function to initialize menu handlers
-	function initMenuHandlers() {
-		// Close all menus when initializing
-		closeAllMenus()
-
-		// Select all menu links
-		document.querySelectorAll('.header__menu-link').forEach((link) => {
-			link.addEventListener('click', (event) => {
-				const href = link.getAttribute('href')
-
-				// Always close the mobile or dropdown menu when a link is clicked
-				closeAllMenus()
-
-				// If the link is empty or points to an anchor (e.g., #section), allow default behavior
-				if (!href || href.startsWith('#')) {
-					return
-				}
-
-				// Construct full URLs for current and target href
-				const currentURL = new URL(window.location.href)
-				const targetURL = new URL(href, window.location.origin)
-
-				// If the pathname is different (navigating to a new page), force a hard reload
-				if (currentURL.pathname !== targetURL.pathname) {
-					event.preventDefault() // Prevent Astro's SPA navigation
-					window.location.href = targetURL.href // Trigger a full page reload
-				}
-				// If the pathname is the same, let Astro handle it normally
+		// Close menu when link is clicked
+		menuLinks.forEach((link) => {
+			link.addEventListener('click', () => {
+				menu.classList.remove('open')
+				toggle.classList.remove('active')
+				toggle.setAttribute('aria-expanded', 'false')
 			})
 		})
 	}
 
-	// Initialize on page load
-	initMenuHandlers()
-
-	// Re-initialize when Astro updates the page
-	document.addEventListener('astro:after-swap', initMenuHandlers)
-
-	// Handle hash changes
-	window.addEventListener('hashchange', closeAllMenus)
-
-	// Cleanup when component is destroyed
-	document.addEventListener('astro:before-swap', () => {
-		document.querySelectorAll('.header__menu-link').forEach((link) => {
-			link.removeEventListener('click', closeAllMenus)
-		})
-	})
+	// Initialize
+	if (document.readyState === 'loading') {
+		document.addEventListener('DOMContentLoaded', initMobileMenu)
+	} else {
+		initMobileMenu()
+	}
 </script>
 
 <!-- Scroll animations -->
