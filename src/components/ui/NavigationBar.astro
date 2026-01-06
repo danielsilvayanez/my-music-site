@@ -51,34 +51,27 @@ function isActivePath(currentPath: string): boolean {
 <header class:list={['header', { [`header--${type}`]: type }]}>
 	<div class="header__container">
 		<nav aria-label="main navigation" role="navigation" class="header__nav">
-			{/* Theme Switcher */}
-			<!-- <ModeSwitcher /> -->
-
-			{/* Menu toggle */}
+			{/* Menu toggle - Mobile only */}
 			<button
-				id="header-toggle"
-				class="header__toggle"
+				id="mobile-menu-toggle"
+				class="mobile-menu-toggle lg:hidden"
 				aria-expanded="false"
 				aria-label="Toggle navigation"
 			>
-				<div class="header__toggle-inner">
-					<span aria-hidden="true"></span>
-					<span aria-hidden="true"></span>
-					<span aria-hidden="true"></span>
-				</div>
-				<span class="header__toggle-backdrop"> </span>
+				<span></span>
+				<span></span>
+				<span></span>
 			</button>
-			{/* Navigation links */}
-			<div class="header__menu">
-				<ul role="menubar" aria-label="Select page">
+
+			{/* Desktop Navigation */}
+			<div class="desktop-nav hidden lg:flex">
+				<ul>
 					{
-						navItems.map((item, index) => (
-							<li role="none" class="header__menu-item">
+						navItems.map((item) => (
+							<li>
 								<a
 									href={item.link}
-									role="menuitem"
-									class={`header__menu-link font-headings ${isActivePath(item.link) ? 'active' : ''}`}
-									style={`--index: ${index}`}
+									class={`nav-link ${isActivePath(item.link) ? 'active' : ''}`}
 								>
 									{item.name}
 								</a>
@@ -89,68 +82,153 @@ function isActivePath(currentPath: string): boolean {
 			</div>
 		</nav>
 	</div>
+
+	{/* Mobile Menu Overlay */}
+	<div id="mobile-menu" class="mobile-menu lg:hidden">
+		<div class="mobile-menu-content">
+			<ul>
+				{
+					navItems.map((item) => (
+						<li>
+							<a
+								href={item.link}
+								class={`mobile-nav-link ${isActivePath(item.link) ? 'active' : ''}`}
+							>
+								{item.name}
+							</a>
+						</li>
+					))
+				}
+			</ul>
+		</div>
+	</div>
 </header>
 
 <style>
+	/* Header */
 	.header {
-		@apply sticky top-0 z-20 w-full before:absolute after:absolute after:left-0 after:top-full after:z-10 after:block after:h-px after:w-full lg:after:hidden;
-	}
-	.header:before {
-		@apply block h-full w-full bg-transparent;
+		@apply sticky top-0 z-20 w-full bg-white dark:bg-neutral-950;
 	}
 	.header__container {
 		@apply relative mx-auto px-6;
 	}
 	.header__nav {
-		@apply flex h-[5.5rem] items-stretch justify-end gap-6 font-medium text-neutral-700 dark:text-neutral-50;
+		@apply flex h-[5.5rem] items-center justify-end gap-6;
 	}
-	.header__menu {
-		@apply invisible fixed left-0 top-0 ml-auto h-dvh w-dvw justify-center overflow-hidden overscroll-contain pt-20 font-medium opacity-0 transition-[opacity,visibility] duration-300 [&_ul]:pb-6 lg:visible lg:relative lg:h-auto lg:w-auto lg:justify-end lg:overflow-visible lg:pt-0 lg:opacity-100 [&_ul]:lg:flex [&_ul]:lg:flex-row [&_ul]:lg:gap-6 [&_ul]:lg:pb-0;
-		z-index: 50;
-	}
-	.header__menu--open {
-		@apply visible opacity-100 [&_.header\_\_menu-link]:animate-fadeIn;
-	}
-	.header__menu--open .header__menu-link {
-		animation-delay: calc(0.5s + var(--index) * 0.05s);
-	}
-	.header__menu-item {
-		@apply relative flex cursor-pointer flex-col items-stretch;
-		z-index: 60;
-	}
-	.header__menu-link {
-		@apply relative flex translate-y-[0.625rem] items-center justify-center gap-1 py-4 text-left text-2xl opacity-0 transition-colors duration-300 hover:text-primary-400 focus:text-primary-500 focus:outline-none focus-visible:outline-none lg:translate-y-0 lg:text-base lg:opacity-100 dark:hover:text-secondary-500 dark:focus:text-secondary-600 [&.active]:text-primary-400 dark:[&.active]:text-secondary-500;
-		z-index: 60;
-	}
-	.header__toggle {
-		@apply relative order-10 block h-16 w-16 origin-center self-center lg:hidden;
-		z-index: 100;
+
+	/* Mobile Menu Toggle Button */
+	.mobile-menu-toggle {
 		position: relative;
+		width: 40px;
+		height: 40px;
+		background: none;
+		border: none;
+		cursor: pointer;
+		z-index: 1000;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		gap: 6px;
+		padding: 8px;
 	}
-	.header__toggle-backdrop {
-		@apply fixed right-6 top-3 size-16 rounded-full bg-white/80 object-center backdrop-blur-sm transition-all duration-700 dark:bg-neutral-950/80 lg:hidden [.header\_\_toggle--open_&]:scale-[150] [.mode-dark_&]:bg-neutral-950/80 [.mode-light_&]:bg-white/80;
-		pointer-events: none;
-		z-index: 40;
+	.mobile-menu-toggle span {
+		display: block;
+		width: 100%;
+		height: 2px;
+		background: #262626;
+		transition: all 0.3s;
 	}
-	.header__toggle--open {
-		@apply after:scale-[100];
+	.mobile-menu-toggle.active span:nth-child(1) {
+		transform: rotate(45deg) translate(7px, 7px);
 	}
-	.header__toggle-inner {
-		@apply absolute left-1/2 top-1/2 w-6 -translate-x-1/2 -translate-y-1/2 transform;
-		position: relative;
-		z-index: 101;
-		pointer-events: all;
+	.mobile-menu-toggle.active span:nth-child(2) {
+		opacity: 0;
 	}
-	.header__toggle-inner span {
-		@apply absolute block h-0.5 transform rounded-full bg-neutral-900 transition-all duration-300 dark:bg-white;
+	.mobile-menu-toggle.active span:nth-child(3) {
+		transform: rotate(-45deg) translate(7px, -7px);
 	}
-	.header__toggle-inner span:nth-child(1) {
-		@apply w-9/12 -translate-y-2 [.header\_\_toggle--open_&]:w-6 [.header\_\_toggle--open_&]:translate-y-0 [.header\_\_toggle--open_&]:rotate-45;
+	:global(.dark) .mobile-menu-toggle span {
+		background: #fff;
 	}
-	.header__toggle-inner span:nth-child(2) {
-		@apply w-6 [.header\_\_toggle--open_&]:-rotate-45;
+
+	/* Mobile Menu Overlay */
+	.mobile-menu {
+		position: fixed;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100vh;
+		background: white;
+		z-index: 999;
+		transform: translateX(-100%);
+		transition: transform 0.3s ease;
 	}
-	.header__toggle-inner span:nth-child(3) {
-		@apply w-1/2 origin-top-left translate-y-2 [.header\_\_toggle--open_&]:w-0;
+	.mobile-menu.open {
+		transform: translateX(0);
+	}
+	:global(.dark) .mobile-menu {
+		background: #0a0a0a;
+	}
+	.mobile-menu-content {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		height: 100%;
+		padding: 2rem;
+	}
+	.mobile-menu ul {
+		list-style: none;
+		padding: 0;
+		margin: 0;
+		display: flex;
+		flex-direction: column;
+		gap: 2rem;
+		text-align: center;
+	}
+	.mobile-nav-link {
+		font-size: 2rem;
+		font-weight: 500;
+		color: #262626;
+		text-decoration: none;
+		transition: color 0.3s;
+	}
+	.mobile-nav-link:hover,
+	.mobile-nav-link.active {
+		color: #ffdf20;
+	}
+	:global(.dark) .mobile-nav-link {
+		color: #fff;
+	}
+	:global(.dark) .mobile-nav-link:hover,
+	:global(.dark) .mobile-nav-link.active {
+		color: #8c55fd;
+	}
+
+	/* Desktop Navigation */
+	.desktop-nav ul {
+		display: flex;
+		gap: 2rem;
+		list-style: none;
+		padding: 0;
+		margin: 0;
+	}
+	.nav-link {
+		font-size: 1rem;
+		font-weight: 500;
+		color: #262626;
+		text-decoration: none;
+		transition: color 0.3s;
+	}
+	.nav-link:hover,
+	.nav-link.active {
+		color: #ffdf20;
+	}
+	:global(.dark) .nav-link {
+		color: #fff;
+	}
+	:global(.dark) .nav-link:hover,
+	:global(.dark) .nav-link.active {
+		color: #8c55fd;
 	}
 </style>
