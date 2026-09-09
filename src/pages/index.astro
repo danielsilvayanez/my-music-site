@@ -1,296 +1,751 @@
 ---
 import Layout from '../layouts/LayoutDesign.astro'
-import Section from '../components/ui/Section.astro'
-import Row from '../components/ui/Row.astro'
-import Col from '../components/ui/Col.astro'
-
-import Feed from '../components/ui/Feeds/ExperienceFeed.astro'
-import Slider from '../components/ui/Slider.astro'
-import Testimonial from '../components/ui/Testimonial.astro'
-
-import experienceData from '../data/json-files/experienceData.json'
-import testimonialData from '../data/json-files/testimonialData.json'
-
-// Load settings
+import MediaPlaceholder from '../components/ui/MediaPlaceholder.astro'
 import siteSettings from '../data/json-files/site-settings.json'
-const { seo, hero } = siteSettings
+const { seo } = siteSettings
 ---
 
 <Layout title={seo.title} description={seo.description} navigation="sticky">
-	<!-- Intro -->
-	<Section id="intro" classes="!overflow-visible !pt-40 lg:!pt-28">
-		<Row>
-			<Col span="2" />
-			<Col span="10" spanMobile="4">
-				{
-					hero.type === 'image' ? (
-						<img
-							src={hero.imageSrc}
-							alt={hero.imageAlt}
-							width="500"
-							height="500"
-							class="animate absolute -left-40 -top-32 size-80 rounded-full object-cover object-top md:-left-72 md:-top-24 md:size-[31.25rem]"
-							loading="eager"
-							fetchpriority="high"
-						/>
-					) : (
-						<img
-							src={hero.imageSrc}
-							alt={hero.imageAlt}
-							width="500"
-							height="500"
-							class="animate absolute -left-40 -top-32 size-80 rounded-full object-cover object-top md:-left-72 md:-top-24 md:size-[31.25rem]"
-							loading="eager"
-							fetchpriority="high"
-						/>
-						// <video
-						// 	autoplay
-						// 	muted
-						// 	poster={hero.videoPoster}
-						// 	class="animate absolute -left-40 -top-56 size-80 rounded-full object-cover md:-left-72 md:-top-44 md:size-[31.25rem]"
-						// >
-						// 	<source src={hero.videoSrc} type="video/mp4" />
-						// </video>
-					)
-				}
-
-				<div class="animate relative z-10">
-					<h1 class="max-w-3xl font-normal">
-						Hi, <br />I’m Daniel <br />& I ❤️ music.
-					</h1>
-
-					<ul class="font-headings flex flex-wrap gap-6 text-lg italic lg:gap-9">
-						<li class="animate">
-							<a class="text-inherit" href="mailto:daniel.silva-yanez@gmx.de"
-								>daniel.silva-yanez@gmx.de</a
-							>
-						</li>
-						<li class="animate">
-							<a class="text-inherit" href="tel:+4917649166600">017649166600</a>
-						</li>
-						<li class="animate">
-							<a class="text-inherit" href="https://www.instagram.com/daniel_silva_yanez/"
-								>@daniel_silva_yanez</a
-							>
-						</li>
-					</ul>
-				</div>
-			</Col>
-		</Row>
-	</Section>
-
-	<!-- About -->
-	<Section id="about" classes="!pt-8 text-left">
-		<div class="mx-auto mb-10 max-w-5xl">
-			<!-- Videokarte: clean, ohne laute Muster, mit subtiler Tiefe -->
-			<div
-				class="relative aspect-video w-full overflow-hidden rounded-3xl bg-neutral-900 shadow-2xl ring-1 ring-black/10"
-			>
-				<div
-					class="pointer-events-none absolute inset-0 rounded-3xl bg-gradient-to-t from-black/10 to-transparent"
-				>
-				</div>
-				<iframe
-					class="h-full w-full rounded-3xl"
-					src="https://www.youtube.com/embed/zWmXhgImSQ8"
-					title="YouTube video player"
-					allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-					referrerpolicy="strict-origin-when-cross-origin"
-					allowfullscreen></iframe>
+	<div class="homepage">
+		<section class="hero" aria-labelledby="hero-title">
+			<div class="hero__media" aria-hidden="true">
+				<img src="/hero/daniel_portrait.jpg" alt="" width="317" height="415" fetchpriority="high" />
 			</div>
-		</div>
+			<div class="hero__content container">
+				<p class="eyebrow">Live · Entertainment · Deutschlandweit</p><h1 id="hero-title">
+					Live-Musik,<br /><em>die dein Event</em><br />mitreißt.
+				</h1><p class="hero__intro">
+					Ich bin Daniel Silva Yañez – Sänger und Entertainer für private Feiern, Corporate Events,
+					Bars, Restaurants und besondere Anlässe.
+				</p><div class="hero__meta">
+					<span>Pop · Rock · Musical · Party-Klassiker</span><span
+						>Deutsch · Englisch · Spanisch</span>
+				</div><div class="hero__actions">
+					<a class="button button--primary" href="#anfragen">Event anfragen <span>↗</span></a><a
+						class="button button--text"
+						href="#live">Live erleben <span>↓</span></a>
+				</div>
+			</div>
+			<p class="hero__scroll" aria-hidden="true">Scroll to explore <span>↓</span></p>
+		</section>
 
-		<!-- Text: bessere Zeilenlänge + Spalten erst ab lg -->
-		<div class="mx-auto max-w-4xl text-left lg:gap-10">
-			<p class="mb-6 break-inside-avoid text-balance leading-relaxed lg:mb-0">
-				Musik hat mein Leben verändert - auch wenn ich sie erst später so richtig für mich entdeckt
-				habe. Mit der Gitarre fing alles an, bald kamen Gesang und Keyboard dazu. Vieles habe ich
-				mir selbst beigebracht, manches im Unterricht verfeinert. Doch am Ende war es vor allem
-				Fleiß, Ausdauer und unzählige Stunden Übung, die mich musikalisch weitergebracht haben.
-				Dabei gehört auch Mut dazu: Mut, Fehler zu machen, ins kalte Wasser zu springen und niemals
-				aufzugeben, wenn etwas nicht sofort klappt. Genau das macht für mich den Weg in der Musik so
-				wertvoll. Auf der Bühne zu stehen – ob mit Bands, in Chören, bei Musicals oder als
-				Entertainer – hat mir gezeigt, was Musik bewirken kann. Sie schafft Verbindung zwischen
-				Menschen, reißt uns aus dem Alltag heraus und macht jeden Moment einzigartig. Für mich ist
-				Musik eine Sprache, die alle verstehen. Und genau diese Sprache möchte ich nutzen, um Herzen
-				zu berühren und unvergessliche Augenblicke zu schaffen.
+		<section id="live" class="section section--live container" aria-labelledby="live-title">
+			<div class="section__intro">
+				<p class="eyebrow">Live erleben</p><h2 id="live-title">
+					So klingt ein Abend<br /><em>mit mir.</em>
+				</h2><p>Echte Auftritte, echte Stimmung, echtes Publikum.</p>
+			</div><MediaPlaceholder variant="reel" label="Live Performance" /><div class="section__meta">
+				<span>Pop · Rock · Musical · Party</span><span>Deutsch · Englisch · Spanisch</span><span
+					>Deutschlandweit buchbar</span>
+			</div>
+		</section>
+
+		<section id="events" class="section section--events container" aria-labelledby="events-title">
+			<p class="eyebrow">Für jeden Anlass</p><h2 id="events-title">
+				Für Events, die mehr als<br /><em>Hintergrundmusik</em> brauchen.
+			</h2><p class="section__lead">
+				Ob private Feier, Firmenveranstaltung oder Abendprogramm – ich passe Setlist, Stimmung und
+				Ablauf an den jeweiligen Anlass an.
+			</p><div class="event-list">
+				<div><span>01</span><h3>Private Feiern & Geburtstage</h3></div><div>
+					<span>02</span><h3>Corporate Events & Firmenfeiern</h3>
+				</div><div><span>03</span><h3>Bars, Restaurants & Hotels</h3></div><div>
+					<span>04</span><h3>Weihnachtsfeiern</h3>
+				</div>
+			</div><aside class="event-note">
+				<strong>Hochzeit oder Trauung geplant?</strong><span
+					>Auf Anfrage sind auch Duo-Auftritte möglich.</span>
+			</aside>
+		</section>
+
+		<section class="section section--statement" aria-labelledby="statement-title">
+			<div class="statement__image">
+				<img
+					src="/hero/daniel_prortrait_black_white.jpg"
+					alt="Daniel Silva Yañez als Sänger"
+					width="484"
+					height="415"
+					loading="lazy"
+				/>
+			</div><div class="statement__content">
+				<p class="eyebrow">Meine Haltung auf der Bühne</p><h2 id="statement-title">
+					Nicht nur singen.<br /><em>Menschen mitnehmen.</em>
+				</h2><p>
+					Für mich geht es bei einem Auftritt nicht nur darum, Songs sauber zu performen. Ich möchte
+					Atmosphäre schaffen, auf das Publikum reagieren und dafür sorgen, dass aus einem
+					Programmpunkt ein echter Moment wird.
+				</p><div class="statement__themes">
+					<div>
+						<strong>Publikumsnähe</strong><span
+							>Ich lese den Raum und gehe auf die Stimmung vor Ort ein.</span>
+					</div><div>
+						<strong>Entertainment</strong><span
+							>Ein Auftritt darf Energie haben, überraschen und Menschen zusammenbringen.</span>
+					</div><div>
+						<strong>Musikalische Vielfalt</strong><span
+							>Von Balladen bis Party-Klassikern – passend zur Dynamik des Abends.</span>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<section id="repertoire" class="section section--range container" aria-labelledby="range-title">
+			<div>
+				<p class="eyebrow">Musikalische Bandbreite</p><h2 id="range-title">
+					Von Gänsehaut<br /><em>bis Mitsingen.</em>
+				</h2>
+			</div><div class="range__copy">
+				<p>
+					Mein Repertoire reicht von ruhigen Balladen bis zu energiegeladenen Party-Klassikern – mit
+					Songs aus mehreren Jahrzehnten und in mehreren Sprachen.
+				</p><div class="range__words">
+					<span>Pop</span><span>Rock</span><span>Musical</span><span>Balladen</span><span
+						>Party-Klassiker</span
+					><span>80er</span><span>90er</span><span>2000er</span><span>aktuelle Songs</span>
+				</div><p class="small">
+					Die Auswahl passe ich an Anlass, Publikum und gewünschte Stimmung an.
+				</p>
+			</div>
+		</section>
+
+		<section class="section section--formats container" aria-labelledby="formats-title">
+			<p class="eyebrow">Flexible Setups</p><h2 id="formats-title">
+				So kann dein Event<br /><em>klingen.</em>
+			</h2><p class="section__lead">
+				Je nach Anlass kann ich flexibel in unterschiedlichen Setups auftreten.
+			</p><div class="format-list">
+				<article>
+					<span>01 / Standard</span><h3>Solo mit Instrumental-Playbacks</h3><p>
+						Mein Standard-Setup für private Feiern, Firmenveranstaltungen, Bars und ähnliche Events.
+					</p>
+				</article><article>
+					<span>02 / Akustisch</span><h3>Mit Gitarre und/oder Piano</h3><p>
+						Für einen akustischeren, persönlicheren oder ruhigeren Rahmen ist auf Wunsch eine
+						instrumentale Begleitung möglich.
+					</p>
+				</article><article>
+					<span>03 / Auf Anfrage</span><h3>Duo für besondere Anlässe</h3><p>
+						Für Hochzeiten oder Trauungen sind auf Anfrage auch Duo-Auftritte möglich.
+					</p>
+				</article>
+			</div><p class="small">
+				Dauer, Besetzung und Ablauf stimmen wir individuell auf dein Event ab.
 			</p>
-		</div>
-	</Section>
+		</section>
 
-	<!-- Experience -->
-	<Section id="experience" classes="!overflow-visible">
-		<Row>
-			<Col span="2" spanMobile="4" classes="h-full">
-				<h2 class="sticky top-4 pr-2 lg:pr-0 lg:text-right">Experience</h2>
-			</Col>
-			<Col span="10" spanMobile="4">
-				<div class="space-y-8">
-					<!-- optional: zarter Divider oben für Rhythmus -->
-					<div class="h-px bg-neutral-200/60"></div>
-					<Feed data={experienceData} />
-					<!-- zarter Divider unten, hält die Sektion zusammen -->
-					<div class="h-px bg-neutral-200/60"></div>
+		<section class="section section--gallery container" aria-labelledby="gallery-title">
+			<div class="gallery__heading">
+				<p class="eyebrow">Eindrücke</p><h2 id="gallery-title">
+					Live. Echt.<br /><em>Mittendrin.</em>
+				</h2><p>Ein paar Eindrücke von Auftritten, Bühnenmomenten und Abenden mit Publikum.</p>
+			</div><div class="gallery__images">
+				<img
+					class="gallery__large"
+					src="/hero/hero-image-primary.png"
+					alt="Daniel Silva Yañez bei einem Live-Auftritt"
+					width="501"
+					height="501"
+					loading="lazy"
+				/><img
+					src="/hero/daniel_portrait.jpg"
+					alt="Daniel Silva Yañez auf der Bühne"
+					width="317"
+					height="415"
+					loading="lazy"
+				/><MediaPlaceholder variant="small" label="Weitere Live-Aufnahme" />
+			</div>
+		</section>
+
+		<section id="about" class="section section--about container" aria-labelledby="about-title">
+			<div>
+				<p class="eyebrow">Über mich</p><h2 id="about-title">
+					Bühne ist für mich<br /><em>mehr als ein Auftritt.</em>
+				</h2>
+			</div><div>
+				<p>
+					Musik hat mein Leben verändert. Mit der Gitarre fing alles an, später kamen Gesang und
+					Keyboard dazu. Auf der Bühne – ob mit Bands, in Chören, bei Musicals oder als Entertainer
+					– habe ich gelernt, wie Musik Menschen verbindet.
+				</p><p>
+					Diese Erfahrung und meine Beschäftigung mit Stimme und Bühnenpräsenz bringe ich in jeden
+					Auftritt ein.
+				</p>
+			</div>
+		</section>
+
+		<section class="section section--process container" aria-labelledby="process-title">
+			<p class="eyebrow">Der Weg zu deinem Event</p><h2 id="process-title">
+				So einfach<br /><em>geht’s.</em>
+			</h2><div class="process-list">
+				<div>
+					<span>01</span><h3>Anfrage senden</h3><p>
+						Schreib mir per E-Mail oder Instagram mit Datum, Ort und ein paar Infos zu deinem Event.
+					</p>
+				</div><div>
+					<span>02</span><h3>Details abstimmen</h3><p>
+						Wir klären Dauer, gewünschte Stimmung, musikalische Ausrichtung und das passende Setup.
+					</p>
+				</div><div>
+					<span>03</span><h3>Individuelles Angebot erhalten</h3><p>
+						Du bekommst ein passendes Angebot – abhängig von Event, Dauer, Besetzung und Anfahrt.
+					</p>
 				</div>
-			</Col>
-		</Row>
-	</Section>
+			</div>
+		</section>
 
-	<!-- Skills & Tools -->
-	<Section id="skills">
-		<Row>
-			<Col span="2" spanMobile="4">
-				<h2 class="lg:text-right">Skills & Tools</h2>
-			</Col>
-			<Col span="10" spanMobile="4">
-				<div class="space-y-8">
-					<!-- Optional: divider for visual rhythm -->
-					<div class="h-px bg-neutral-200/60"></div>
-
-					<div class="grid grid-cols-1 gap-8 md:grid-cols-2">
-						<!-- Linke Spalte: Künstlerische Fähigkeiten -->
-						<ul class="list-outside list-disc space-y-2 pl-5">
-							<li>Live-Gesang (Genres: Rock, Pop, Musical, Schlager, Disney, Rap)</li>
-							<li>Bühnenerfahrung Solist: 2 Jahre im Center Parcs als Entertainer/Sänger</li>
-							<li>Soft Skills: Emotion, Energie, Publikumsnähe, Moderation, Tanz/Schauspiel</li>
-						</ul>
-						<!-- Rechte Spalte: Technik & Tools -->
-						<ul class="list-outside list-disc space-y-2 pl-5">
-							<li>Technik & Tools: HK Polar 12 Mk2 PA und Sennheiser Mikrofon/e</li>
-							<li>Fortbildung zum Vocal Coach: POWERVOICE (2025–2026)</li>
-							<li>Perspektive: Vocal Coaching anbieten</li>
-						</ul>
-					</div>
-
-					<!-- Optional: divider at the bottom -->
-					<div class="h-px bg-neutral-200/60"></div>
-				</div>
-			</Col>
-		</Row>
-	</Section>
-
-	<!-- Feedback -->
-	<Section id="feedback">
-		<Row>
-			<Col span="2" spanMobile="4"><h2 class="lg:text-right">Feedback (Spaß)</h2></Col>
-			<Col span="10" spanMobile="4">
-				<Slider
-					slidesPerView={1}
-					id="feedbackSlider"
-					delay={3500}
-					showNavigation={false}
-					showPagination={false}
-					centeredSlides={true}
-					initialSlide={0}
-				>
-					{
-						testimonialData.map((item: any) => (
-							<div class="swiper-slide">
-								<Testimonial
-									blockquote={item.blockquote}
-									figcaption={item.figcaption}
-									cite={item.cite}
-									align="left"
-									quoteClasses="font-headings italic"
-								/>
-							</div>
-						))
-					}
-				</Slider>
-			</Col>
-		</Row>
-	</Section>
-
-	<!-- Sound Samples -->
-	<Section id="sound-samples">
-		<Row>
-			<Col span="2" spanMobile="4">
-				<h2 class="lg:text-right">Sound Samples</h2>
-			</Col>
-			<Col span="10" spanMobile="4">
-				<div class="space-y-8">
-					<!-- Optional: divider for visual rhythm -->
-					<div class="h-px bg-neutral-200/60"></div>
-
-					<div class="prose prose-lg max-w-none dark:prose-invert">
-						<p class="text-balance leading-relaxed">
-							Hier findest du bald Hörproben von meinen Live-Auftritten und Studio-Aufnahmen. Lass
-							dich von verschiedenen Genres und Stilen inspirieren und höre, wie ich Musik zum Leben
-							erwecke.
-						</p>
-
-						<div
-							class="mt-8 rounded-2xl border-2 border-dashed border-neutral-300 bg-neutral-50 p-12 text-center dark:border-neutral-700 dark:bg-neutral-900"
-						>
-							<p class="mb-4 text-lg font-medium text-neutral-600 dark:text-neutral-400">
-								Hörproben kommen bald!
-							</p>
-							<p class="text-sm text-neutral-500 dark:text-neutral-500">
-								Ich arbeite gerade daran, dir hier ausgewählte Sound-Samples zur Verfügung zu
-								stellen. Schau bald wieder vorbei oder kontaktiere mich direkt für Referenzen.
-							</p>
-						</div>
-					</div>
-
-					<!-- Optional: divider at the bottom -->
-					<div class="h-px bg-neutral-200/60"></div>
-				</div>
-			</Col>
-		</Row>
-	</Section>
-
-	<!-- Prices -->
-	<Section id="prices">
-		<Row>
-			<Col span="2" spanMobile="4">
-				<h2 class="lg:text-right">Prices</h2>
-			</Col>
-			<Col span="10" spanMobile="4">
-				<div class="space-y-8">
-					<!-- Optional: divider for visual rhythm -->
-					<div class="h-px bg-neutral-200/60"></div>
-
-					<div class="prose prose-lg max-w-none dark:prose-invert">
-						<p class="text-balance leading-relaxed">
-							Jeder Auftritt ist einzigartig – und genau das sollten auch die Konditionen sein. Ob
-							Firmenfeier, Hochzeit, Geburtstag oder ein anderes Event: Ich erstelle dir gerne ein
-							individuelles Angebot, das genau auf deine Wünsche und Rahmenbedingungen zugeschnitten
-							ist.
-						</p>
-
-						<h3 class="mt-8 text-xl font-semibold">Was beeinflusst den Preis?</h3>
-						<ul class="list-outside list-disc space-y-2 pl-5">
-							<li>
-								<strong>Art der Veranstaltung</strong> – Private Feier, Firmenevent, Hochzeit etc.
-							</li>
-							<li>
-								<strong>Dauer des Auftritts</strong> – Von 30 Minuten bis zu mehreren Stunden
-							</li>
-							<li>
-								<strong>Ort & Anfahrt</strong> – Entfernung und Erreichbarkeit des Veranstaltungsortes
-							</li>
-							<li>
-								<strong>Technische Ausstattung</strong> – Nutze ich meine eigene Technik oder ist vor
-								Ort alles vorhanden?
-							</li>
-							<li>
-								<strong>Spezielle Wünsche</strong> – Bestimmte Songs, Setlisten, musikalische Schwerpunkte,
-								einen, oder mehrere Künstler
-							</li>
-						</ul>
-
-						<h3 class="mt-8 text-xl font-semibold">Interessiert?</h3>
-						<p class="text-balance leading-relaxed">
-							Schreib mir einfach unten eine Nachricht mit ein paar Eckdaten zu deinem Event, und
-							ich melde mich schnellstmöglich mit einem unverbindlichen Angebot bei dir. Gemeinsam
-							finden wir die perfekte Lösung für deinen unvergesslichen Auftritt!
-						</p>
-					</div>
-
-					<!-- Optional: divider at the bottom -->
-					<div class="h-px bg-neutral-200/60"></div>
-				</div>
-			</Col>
-		</Row>
-	</Section>
+		<section id="anfragen" class="section section--cta" aria-labelledby="cta-title">
+			<div class="container">
+				<p class="eyebrow">Lass uns loslegen</p><h2 id="cta-title">
+					Lust auf Live-Musik,<br /><em>die dein Event mitnimmt?</em>
+				</h2><p>
+					Erzähl mir kurz, was du planst – ich melde mich mit einem passenden Vorschlag für Ablauf,
+					Setup und Auftrittsdauer.
+				</p><div class="cta__actions">
+					<a class="button button--primary" href="mailto:daniel.silva-yanez@gmx.de"
+						>Event anfragen <span>↗</span></a
+					><a class="button button--outline" href="https://www.instagram.com/daniel_silva_yanez/"
+						>Auf Instagram schreiben <span>↗</span></a>
+				</div><p class="small">Deutschlandweit buchbar · Deutsch · Englisch · Spanisch</p>
+			</div>
+		</section>
+	</div>
 </Layout>
+
+<style>
+	:global(body) {
+		background: #11100f;
+		color: #e9e4dc;
+	}
+	:global(.header) {
+		background: rgba(17, 16, 15, 0.88);
+		color: #e9e4dc;
+		backdrop-filter: blur(14px);
+	}
+	:global(.nav-link) {
+		color: #e9e4dc !important;
+	}
+	.homepage {
+		background: #11100f;
+		color: #e9e4dc;
+		overflow: hidden;
+	}
+	.container {
+		width: min(100% - 3rem, 80rem);
+		margin-inline: auto;
+	}
+	.hero {
+		min-height: min(56rem, 100svh);
+		position: relative;
+		display: grid;
+		align-items: center;
+		overflow: hidden;
+		isolation: isolate;
+	}
+	.hero__media {
+		position: absolute;
+		inset: 0;
+		z-index: -2;
+		background: #24201c;
+	}
+	.hero__media img {
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+		object-position: 58% center;
+		opacity: 0.58;
+		filter: saturate(0.7);
+	}
+	.hero__media::after {
+		content: '';
+		position: absolute;
+		inset: 0;
+		background:
+			linear-gradient(90deg, #11100f 0%, rgba(17, 16, 15, 0.84) 35%, rgba(17, 16, 15, 0.18) 100%),
+			linear-gradient(0deg, #11100f 0%, transparent 35%);
+	}
+	.hero__content {
+		padding-block: 7rem 5rem;
+	}
+	.eyebrow {
+		color: #f28b3d;
+		font:
+			600 0.7rem/1.2 ui-sans-serif,
+			system-ui,
+			sans-serif;
+		letter-spacing: 0.16em;
+		text-transform: uppercase;
+	}
+	h1,
+	h2,
+	h3,
+	p {
+		margin: 0;
+	}
+	h1,
+	h2,
+	h3 {
+		font-family: ui-sans-serif, system-ui, sans-serif;
+		letter-spacing: -0.055em;
+	}
+	h1 {
+		max-width: 55rem;
+		margin: 1.5rem 0 2rem;
+		font-size: clamp(3.4rem, 9vw, 8rem);
+		line-height: 0.88;
+		font-weight: 700;
+	}
+	h2 {
+		font-size: clamp(2.8rem, 6vw, 6rem);
+		line-height: 0.92;
+		font-weight: 700;
+	}
+	h3 {
+		font-size: clamp(1.25rem, 2vw, 1.75rem);
+		line-height: 1.05;
+	}
+	em {
+		color: #f28b3d;
+		font-style: normal;
+	}
+	p {
+		font:
+			400 1.1rem/1.65 ui-sans-serif,
+			system-ui,
+			sans-serif;
+		color: #bcb4aa;
+	}
+	.hero__intro {
+		max-width: 38rem;
+		font-size: clamp(1.1rem, 2vw, 1.35rem);
+		color: #e9e4dc;
+	}
+	.hero__meta,
+	.section__meta {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.6rem 2rem;
+		margin-top: 2rem;
+		color: #bcb4aa;
+		font:
+			600 0.75rem/1.4 ui-sans-serif,
+			system-ui,
+			sans-serif;
+		letter-spacing: 0.08em;
+		text-transform: uppercase;
+	}
+	.hero__actions,
+	.cta__actions {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 1rem;
+		margin-top: 2.5rem;
+	}
+	.button {
+		display: inline-flex;
+		align-items: center;
+		gap: 0.8rem;
+		min-height: 3.25rem;
+		padding: 0.8rem 1.25rem;
+		border: 1px solid transparent;
+		color: #11100f;
+		font:
+			700 0.8rem ui-sans-serif,
+			system-ui,
+			sans-serif;
+		text-decoration: none;
+		text-transform: uppercase;
+		letter-spacing: 0.08em;
+		transition:
+			transform 0.2s ease,
+			background 0.2s ease;
+	}
+	.button:hover {
+		transform: translateY(-2px);
+	}
+	.button--primary {
+		background: #f28b3d;
+	}
+	.button--text {
+		color: #e9e4dc;
+	}
+	.button--outline {
+		border-color: #71685e;
+		color: #e9e4dc;
+	}
+	.hero__scroll {
+		position: absolute;
+		right: 3rem;
+		bottom: 2rem;
+		display: flex;
+		gap: 0.7rem;
+		color: #bcb4aa;
+		font-size: 0.7rem;
+		text-transform: uppercase;
+		letter-spacing: 0.12em;
+	}
+	.section {
+		padding-block: clamp(5rem, 11vw, 10rem);
+	}
+	.section__intro {
+		max-width: 44rem;
+	}
+	.section__intro p:last-child {
+		margin-top: 1.5rem;
+	}
+	.section--live {
+		display: grid;
+		grid-template-columns: 1fr minmax(14rem, 25rem);
+		gap: 3rem 10%;
+		align-items: end;
+	}
+	.section--live .section__meta {
+		grid-column: 1 / -1;
+		margin-top: 0;
+	}
+	.media-placeholder {
+		position: relative;
+		display: grid;
+		place-items: center;
+		min-height: 28rem;
+		overflow: hidden;
+		background: linear-gradient(135deg, #33261d, #171514);
+		border: 1px solid #4b382a;
+	}
+	.media-placeholder--reel {
+		aspect-ratio: 9 / 16;
+		min-height: 0;
+		grid-column: 2;
+		grid-row: 1 / span 2;
+	}
+	.media-placeholder--small {
+		min-height: 15rem;
+	}
+	.media-placeholder::before {
+		content: '';
+		position: absolute;
+		inset: 12%;
+		border: 1px solid rgba(242, 139, 61, 0.35);
+		transform: rotate(-8deg);
+	}
+	.media-placeholder__play {
+		position: relative;
+		display: grid;
+		place-items: center;
+		width: 4rem;
+		height: 4rem;
+		border: 1px solid #f28b3d;
+		border-radius: 50%;
+		color: #f28b3d;
+		font-size: 1.25rem;
+	}
+	.media-placeholder__label {
+		position: absolute;
+		left: 1rem;
+		bottom: 1rem;
+		color: #e9e4dc;
+		font:
+			600 0.65rem ui-sans-serif,
+			system-ui,
+			sans-serif;
+		letter-spacing: 0.14em;
+		text-transform: uppercase;
+	}
+	.section--events {
+		background: #f0ebe3;
+		color: #171514;
+		width: 100%;
+		max-width: none;
+		padding-inline: max(1.5rem, calc((100% - 80rem) / 2));
+	}
+	.section--events p,
+	.section--events .small {
+		color: #645b52;
+	}
+	.section--events h2 {
+		margin-top: 1.5rem;
+	}
+	.section__lead {
+		max-width: 40rem;
+		margin-top: 1.5rem;
+	}
+	.event-list {
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+		margin-top: 5rem;
+		border-top: 1px solid #c8bcae;
+	}
+	.event-list div {
+		display: grid;
+		grid-template-columns: 3rem 1fr;
+		gap: 1rem;
+		align-items: baseline;
+		padding: 1.5rem 0;
+		border-bottom: 1px solid #c8bcae;
+	}
+	.event-list span,
+	.process-list span,
+	.format-list span {
+		color: #f28b3d;
+		font:
+			700 0.7rem ui-monospace,
+			monospace;
+		letter-spacing: 0.1em;
+	}
+	.event-note {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.4rem 1rem;
+		margin-top: 2rem;
+		padding-left: 3rem;
+		font:
+			0.85rem ui-sans-serif,
+			system-ui,
+			sans-serif;
+	}
+	.event-note span {
+		color: #645b52;
+	}
+	.section--statement {
+		display: grid;
+		grid-template-columns: minmax(15rem, 1fr) minmax(20rem, 1fr);
+		gap: clamp(2rem, 8vw, 8rem);
+		width: min(100% - 3rem, 100rem);
+	}
+	.statement__image img {
+		width: 100%;
+		height: 100%;
+		max-height: 42rem;
+		object-fit: cover;
+		filter: saturate(0.65);
+	}
+	.statement__content > p {
+		max-width: 38rem;
+		margin-top: 1.5rem;
+	}
+	.statement__themes {
+		margin-top: 3rem;
+		border-top: 1px solid #403933;
+	}
+	.statement__themes div {
+		display: grid;
+		grid-template-columns: 10rem 1fr;
+		gap: 1rem;
+		padding: 1rem 0;
+		border-bottom: 1px solid #403933;
+	}
+	.statement__themes strong {
+		color: #e9e4dc;
+		font:
+			600 0.9rem ui-sans-serif,
+			system-ui,
+			sans-serif;
+	}
+	.statement__themes span {
+		color: #9d958b;
+		font:
+			0.9rem/1.5 ui-sans-serif,
+			system-ui,
+			sans-serif;
+	}
+	.section--range {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		gap: 3rem;
+	}
+	.range__copy {
+		padding-top: 3rem;
+	}
+	.range__words {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.5rem;
+		margin: 2rem 0;
+	}
+	.range__words span {
+		padding: 0.6rem 0.8rem;
+		border: 1px solid #51443a;
+		color: #e9e4dc;
+		font:
+			0.8rem ui-sans-serif,
+			system-ui,
+			sans-serif;
+	}
+	.section--formats {
+		border-top: 1px solid #403933;
+	}
+	.section--formats .section__lead {
+		margin-bottom: 3rem;
+	}
+	.format-list,
+	.process-list {
+		display: grid;
+		grid-template-columns: repeat(3, 1fr);
+		gap: 1rem;
+	}
+	.format-list article,
+	.process-list div {
+		padding: 1.5rem;
+		border: 1px solid #403933;
+	}
+	.format-list h3,
+	.process-list h3 {
+		margin: 3rem 0 1rem;
+	}
+	.format-list p,
+	.process-list p {
+		font-size: 0.95rem;
+	}
+	.section--gallery {
+		display: grid;
+		grid-template-columns: 0.75fr 1.25fr;
+		gap: 4rem;
+	}
+	.gallery__heading p:last-child {
+		margin-top: 1.5rem;
+	}
+	.gallery__images {
+		display: grid;
+		grid-template-columns: 1.25fr 0.75fr;
+		gap: 1rem;
+		align-items: end;
+	}
+	.gallery__images img {
+		width: 100%;
+		height: 16rem;
+		object-fit: cover;
+	}
+	.gallery__images .gallery__large {
+		grid-row: span 2;
+		height: 32rem;
+	}
+	.section--about {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		gap: 4rem;
+		border-top: 1px solid #403933;
+	}
+	.section--about > div:last-child {
+		padding-top: 3rem;
+	}
+	.section--about p + p {
+		margin-top: 1.5rem;
+	}
+	.section--process {
+		border-top: 1px solid #403933;
+	}
+	.process-list {
+		margin-top: 4rem;
+	}
+	.section--cta {
+		background: #f28b3d;
+		color: #171514;
+	}
+	.section--cta h2 {
+		margin-top: 1.5rem;
+	}
+	.section--cta p {
+		max-width: 36rem;
+		margin-top: 1.5rem;
+		color: #422819;
+	}
+	.section--cta .button--primary {
+		background: #171514;
+		color: #f0ebe3;
+	}
+	.section--cta .button--outline {
+		border-color: #9c552b;
+		color: #171514;
+	}
+	.section--cta .small {
+		color: #422819;
+	}
+	.small {
+		font-size: 0.8rem;
+		color: #9d958b;
+	}
+	@media (max-width: 767px) {
+		.container {
+			width: min(100% - 2rem, 80rem);
+		}
+		.hero {
+			min-height: 44rem;
+			align-items: end;
+		}
+		.hero__content {
+			padding-block: 6rem 4rem;
+		}
+		.hero__media img {
+			object-position: 65% center;
+		}
+		.hero__media::after {
+			background: linear-gradient(
+				0deg,
+				#11100f 5%,
+				rgba(17, 16, 15, 0.55) 65%,
+				rgba(17, 16, 15, 0.12)
+			);
+		}
+		.hero__scroll {
+			display: none;
+		}
+		.hero__meta {
+			gap: 0.5rem 1rem;
+		}
+		.section--live,
+		.section--statement,
+		.section--range,
+		.section--gallery,
+		.section--about {
+			display: block;
+		}
+		.section--live .media-placeholder--reel {
+			width: min(100%, 18rem);
+			margin: 3rem auto 0;
+		}
+		.section--events {
+			padding-inline: 1rem;
+		}
+		.event-list,
+		.format-list,
+		.process-list {
+			grid-template-columns: 1fr;
+			margin-top: 3rem;
+		}
+		.event-note {
+			padding-left: 0;
+		}
+		.statement__image {
+			margin-bottom: 3rem;
+		}
+		.statement__themes div {
+			grid-template-columns: 1fr;
+			gap: 0.4rem;
+		}
+		.range__copy,
+		.section--about > div:last-child {
+			padding-top: 2rem;
+		}
+		.gallery__images {
+			margin-top: 3rem;
+		}
+		.section--about {
+			gap: 0;
+		}
+	}
+	@media (min-width: 768px) and (max-width: 1100px) {
+		.container {
+			width: min(100% - 4rem, 72rem);
+		}
+		h1 {
+			font-size: clamp(4rem, 8vw, 6.5rem);
+		}
+		.section--statement {
+			gap: 3rem;
+		}
+	}
+	@media (prefers-reduced-motion: reduce) {
+		.button {
+			transition: none;
+		}
+	}
+</style>

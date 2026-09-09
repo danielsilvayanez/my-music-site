@@ -1,0 +1,13 @@
+---
+type Props = { variant?: 'reel' | 'small'; label: string }
+const { variant = 'reel', label } = Astro.props
+---
+
+<div
+	class:list={['media-placeholder', `media-placeholder--${variant}`]}
+	role="img"
+	aria-label={`${label} – Video folgt später`}
+>
+	<span class="media-placeholder__play" aria-hidden="true">▶</span>
+	<span class="media-placeholder__label">{label} · Demnächst</span>
+</div>
