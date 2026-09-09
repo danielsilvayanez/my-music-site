@@ -14,8 +14,6 @@
 // Content
 // - Components
 // - UI
-import ModeSwitcher from './ModeSwitcher.astro'
-
 // - Props
 type Props = {
 	type?: 'none' | 'sticky'
@@ -56,6 +54,7 @@ function isActivePath(currentPath: string): boolean {
 				id="mobile-menu-toggle"
 				class="mobile-menu-toggle lg:hidden"
 				aria-expanded="false"
+				aria-controls="mobile-menu"
 				aria-label="Toggle navigation"
 			>
 				<span></span>
@@ -166,6 +165,9 @@ function isActivePath(currentPath: string): boolean {
 	.mobile-menu.open {
 		transform: translateX(0);
 	}
+	.mobile-menu:not(.open) {
+		visibility: hidden;
+	}
 	:global(.dark) .mobile-menu {
 		background: #0a0a0a;
 	}
@@ -223,6 +225,12 @@ function isActivePath(currentPath: string): boolean {
 	.nav-link:hover,
 	.nav-link.active {
 		color: #ffdf20;
+	}
+	.mobile-menu-toggle:focus-visible,
+	.nav-link:focus-visible,
+	.mobile-nav-link:focus-visible {
+		outline: 3px solid currentColor;
+		outline-offset: 4px;
 	}
 	:global(.dark) .nav-link {
 		color: #fff;

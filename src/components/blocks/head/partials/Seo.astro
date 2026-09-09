@@ -16,12 +16,15 @@ const { title, description, ogImage, canonicalUrl, noindex = false } = Astro.pro
 <meta property="og:type" content="website" />
 <meta property="og:title" content={title} />
 <meta property="og:description" content={description} />
-{ogImage && <meta property="og:image" content={ogImage} />}
+<meta property="og:site_name" content="Daniel Silva Yañez" />
+<meta property="og:locale" content="de_DE" />
+{ogImage && <meta property="og:image" content={new URL(ogImage, Astro.site).href} />}
+{canonicalUrl && <meta property="og:url" content={canonicalUrl} />}
 
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:title" content={title} />
 <meta name="twitter:description" content={description} />
-{ogImage && <meta name="twitter:image" content={ogImage} />}
+{ogImage && <meta name="twitter:image" content={new URL(ogImage, Astro.site).href} />}
 
 {canonicalUrl && <link rel="canonical" href={canonicalUrl} />}
 
