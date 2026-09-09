@@ -83,6 +83,25 @@ h6,
 main a {
 	@apply text-primary-500 transition-colors duration-300 hover:text-primary-600 dark:text-secondary-500 dark:hover:text-secondary-600 [.mode-dark_&]:hover:!text-secondary-500;
 }
+button:focus-visible,
+a:focus-visible {
+	@apply outline-2 outline-offset-4 outline-current;
+}
+
+@media (prefers-reduced-motion: reduce) {
+	*,
+	*::before,
+	*::after {
+		animation-duration: 0.01ms !important;
+		animation-iteration-count: 1 !important;
+		scroll-behavior: auto !important;
+		transition-duration: 0.01ms !important;
+	}
+	.scroll-animation .col:not(.noanimation),
+	.scroll-animation .animate {
+		@apply translate-y-0 opacity-100 blur-none;
+	}
+}
 .highlight {
 	@apply text-primary-500 dark:text-secondary-500 [.mode-dark_&]:text-secondary-500 [.mode-dark_&]:hover:text-secondary-600;
 }

@@ -76,27 +76,35 @@
 		const menuLinks = document.querySelectorAll('.mobile-nav-link')
 
 		if (!toggle || !menu) return
+		let previouslyFocused: HTMLElement | null = null
+		const closeMenu = () => {
+			menu.classList.remove('open')
+			toggle.classList.remove('active')
+			toggle.setAttribute('aria-expanded', 'false')
+			if (previouslyFocused) previouslyFocused.focus()
+		}
 
 		// Toggle menu
 		toggle.addEventListener('click', () => {
 			const isOpen = menu.classList.contains('open')
 			if (isOpen) {
-				menu.classList.remove('open')
-				toggle.classList.remove('active')
-				toggle.setAttribute('aria-expanded', 'false')
+				closeMenu()
 			} else {
+				previouslyFocused = document.activeElement as HTMLElement | null
 				menu.classList.add('open')
 				toggle.classList.add('active')
 				toggle.setAttribute('aria-expanded', 'true')
+				;(menuLinks[0] as HTMLElement | undefined)?.focus()
 			}
+		})
+		document.addEventListener('keydown', (event) => {
+			if (event.key === 'Escape' && menu.classList.contains('open')) closeMenu()
 		})
 
 		// Close menu when link is clicked
 		menuLinks.forEach((link) => {
 			link.addEventListener('click', () => {
-				menu.classList.remove('open')
-				toggle.classList.remove('active')
-				toggle.setAttribute('aria-expanded', 'false')
+				closeMenu()
 			})
 		})
 	}

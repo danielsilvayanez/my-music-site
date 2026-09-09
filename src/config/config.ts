@@ -24,12 +24,12 @@ export const configData: Config = {
 	siteTitle: 'Daniel Silva Yañez – Musiker & Sänger für Events',
 	siteDescription:
 		'Professioneller Musiker und Sänger für Firmenfeiern, Kindergeburtstage, Hochzeiten und private Veranstaltungen.',
-	ogImage: '/hero/daniel-silva-yañez-musiker-sänger.jpg',
+	ogImage: '/og.jpg',
 	logo: {
 		src: '/logo.svg',
 		alt: 'Daniel Silva Yañez Logo'
 	},
-	siteUrl: 'https://DEINE-DOMAIN.de', // später echte Domain einsetzen
+	siteUrl: 'https://danielsilvayanez.vercel.app',
 	noindex: false,
 	mode: 'auto',
 	scrollAnimations: true

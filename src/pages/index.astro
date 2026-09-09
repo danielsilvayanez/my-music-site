@@ -5,7 +5,6 @@ import Row from '../components/ui/Row.astro'
 import Col from '../components/ui/Col.astro'
 
 import Feed from '../components/ui/Feeds/ExperienceFeed.astro'
-import List from '../components/ui/List.astro'
 import Slider from '../components/ui/Slider.astro'
 import Testimonial from '../components/ui/Testimonial.astro'
 
@@ -32,6 +31,7 @@ const { seo, hero } = siteSettings
 							height="500"
 							class="animate absolute -left-40 -top-32 size-80 rounded-full object-cover object-top md:-left-72 md:-top-24 md:size-[31.25rem]"
 							loading="eager"
+							fetchpriority="high"
 						/>
 					) : (
 						<img
@@ -41,6 +41,7 @@ const { seo, hero } = siteSettings
 							height="500"
 							class="animate absolute -left-40 -top-32 size-80 rounded-full object-cover object-top md:-left-72 md:-top-24 md:size-[31.25rem]"
 							loading="eager"
+							fetchpriority="high"
 						/>
 						// <video
 						// 	autoplay
@@ -93,7 +94,6 @@ const { seo, hero } = siteSettings
 					class="h-full w-full rounded-3xl"
 					src="https://www.youtube.com/embed/zWmXhgImSQ8"
 					title="YouTube video player"
-					frameborder="0"
 					allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
 					referrerpolicy="strict-origin-when-cross-origin"
 					allowfullscreen></iframe>

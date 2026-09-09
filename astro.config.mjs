@@ -7,11 +7,11 @@ import sitemap from "@astrojs/sitemap";
 import react from "@astrojs/react";
 import markdoc from "@astrojs/markdoc";
 import keystatic from "@keystatic/astro";
-import netlify from "@astrojs/netlify";
+import vercel from "@astrojs/vercel/serverless";
 
 // https://astro.build/config
 export default defineConfig({
-  site: "https://milo-theme.netlify.app/",
+  site: "https://danielsilvayanez.vercel.app",
   integrations: [
     tailwind(),
     icon(),
@@ -26,5 +26,5 @@ export default defineConfig({
     markdoc(),
     keystatic(),
   ],
-  adapter: netlify(),
+  adapter: vercel(),
 });
