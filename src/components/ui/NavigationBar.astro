@@ -183,20 +183,13 @@ function isActivePath(currentPath: string): boolean {
 	.mobile-nav-link {
 		font-size: 2rem;
 		font-weight: 500;
-		color: #262626;
+		color: #f2eee8;
 		text-decoration: none;
 		transition: color 0.3s;
 	}
 	.mobile-nav-link:hover,
 	.mobile-nav-link.active {
-		color: #ffdf20;
-	}
-	:global(.dark) .mobile-nav-link {
-		color: #fff;
-	}
-	:global(.dark) .mobile-nav-link:hover,
-	:global(.dark) .mobile-nav-link.active {
-		color: #8c55fd;
+		color: #f28b3d;
 	}
 
 	/* Desktop Navigation */
@@ -213,26 +206,19 @@ function isActivePath(currentPath: string): boolean {
 	.nav-link {
 		font-size: 1rem;
 		font-weight: 500;
-		color: #262626;
+		color: #f2eee8;
 		text-decoration: none;
 		transition: color 0.3s;
 	}
 	.nav-link:hover,
 	.nav-link.active {
-		color: #ffdf20;
+		color: #f28b3d;
 	}
 	.mobile-menu-toggle:focus-visible,
 	.nav-link:focus-visible,
 	.mobile-nav-link:focus-visible {
 		outline: 3px solid currentColor;
 		outline-offset: 4px;
-	}
-	:global(.dark) .nav-link {
-		color: #fff;
-	}
-	:global(.dark) .nav-link:hover,
-	:global(.dark) .nav-link.active {
-		color: #8c55fd;
 	}
 	@media (min-width: 768px) {
 		.mobile-menu-toggle,
