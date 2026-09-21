@@ -1,6 +1,6 @@
 ---
 import Layout from '../layouts/LayoutDesign.astro'
-import MediaPlaceholder from '../components/ui/MediaPlaceholder.astro'
+import InstagramEmbed from '../components/ui/InstagramEmbed.astro'
 import siteSettings from '../data/json-files/site-settings.json'
 const { seo } = siteSettings
 ---
@@ -34,7 +34,11 @@ const { seo } = siteSettings
 				<p class="eyebrow">Live erleben</p><h2 id="live-title">
 					So klingt ein Abend<br /><em>mit mir.</em>
 				</h2><p>Echte Auftritte, echte Stimmung, echtes Publikum.</p>
-			</div><MediaPlaceholder variant="reel" label="Live Performance" /><div class="section__meta">
+			</div><InstagramEmbed
+				class="media-placeholder--reel"
+				url="https://www.instagram.com/p/DcbslsRK2r_/"
+				title="Live-Auftritt von Daniel Silva Yañez"
+			/><div class="section__meta">
 				<span>Pop · Rock · Musical · Party</span><span>Deutsch · Englisch · Spanisch</span><span
 					>Deutschlandweit buchbar</span>
 			</div>
@@ -139,20 +143,17 @@ const { seo } = siteSettings
 					Live. Echt.<br /><em>Mittendrin.</em>
 				</h2><p>Ein paar Eindrücke von Auftritten, Bühnenmomenten und Abenden mit Publikum.</p>
 			</div><div class="gallery__images">
-				<img
+				<InstagramEmbed
 					class="gallery__large"
-					src="/media/relaunch/53c9caef-25af-460b-a385-a2696f3a69ab.JPG"
-					alt="Daniel Silva Yañez bei einem Live-Auftritt"
-					width="501"
-					height="501"
-					loading="lazy"
-				/><img
-					src="/media/relaunch/48d0d872-8f7f-4176-9441-57ceb731e839.JPG"
-					alt="Daniel Silva Yañez auf der Bühne"
-					width="317"
-					height="415"
-					loading="lazy"
-				/><MediaPlaceholder variant="small" label="Weitere Live-Aufnahme" />
+					url="https://www.instagram.com/p/DdBOLOCqnum/"
+					title="Live-Auftritt von Daniel Silva Yañez"
+				/><InstagramEmbed
+					url="https://www.instagram.com/p/DcmSWqUKY6q/"
+					title="Performance von Daniel Silva Yañez"
+				/><InstagramEmbed
+					url="https://www.instagram.com/p/DY2W3M_qdgv/"
+					title="Musikvideo von Daniel Silva Yañez"
+				/>
 			</div>
 		</section>
 
@@ -639,6 +640,13 @@ const { seo } = siteSettings
 		width: 100%;
 		height: 16rem;
 		object-fit: cover;
+	}
+	.gallery__images > .instagram-embed {
+		height: 16rem;
+	}
+	.gallery__images > .instagram-embed iframe {
+		height: calc(100% - 2.45rem);
+		aspect-ratio: auto;
 	}
 	.gallery__images .gallery__large {
 		grid-row: span 2;
