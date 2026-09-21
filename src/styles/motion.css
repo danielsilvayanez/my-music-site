@@ -12,7 +12,7 @@
 	transform: none;
 }
 
-.homepage [data-motion='section-heading'] {
+.homepage.motion-enabled [data-motion='section-heading'] {
 	clip-path: inset(0 0 100% 0);
 	transform: translate3d(0, 0.5rem, 0);
 	transition:

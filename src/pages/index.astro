@@ -472,13 +472,14 @@ const instagramPosts = [
 		color: #171514;
 		width: 100%;
 		max-width: none;
-		padding-inline: max(1.5rem, calc((100% - 80rem) / 2));
+		padding-block: clamp(6rem, 8vw, 8rem);
+		padding-inline: max(1.5rem, calc((100% - 76rem) / 2));
 	}
-	@media (min-width: 768px) {
+	@media (min-width: 900px) {
 		.section--events {
 			display: grid;
-			grid-template-columns: minmax(0, 1.5fr) minmax(16rem, 1fr);
-			column-gap: 10%;
+			grid-template-columns: minmax(0, 1.35fr) minmax(18rem, 0.65fr);
+			column-gap: 5rem;
 		}
 		.section--events > .eyebrow,
 		.section--events > h2 {
@@ -512,7 +513,7 @@ const instagramPosts = [
 	.event-list {
 		display: grid;
 		grid-template-columns: repeat(2, 1fr);
-		margin-top: 5rem;
+		margin-top: 3.5rem;
 		border-top: 1px solid #c8bcae;
 	}
 	.event-list div {
@@ -756,6 +757,7 @@ const instagramPosts = [
 		}
 		.section--events {
 			display: block;
+			padding-block: 5rem;
 			padding-inline: var(--mobile-gutter);
 		}
 		.section--events h2 {
