@@ -1,75 +1,73 @@
----
-// Contact Me
-// ------------
-// Description: A component that displays a contact me section with a title, first column, and second column.
----
-
-<footer id="contact" class="footer" aria-labelledby="footer-title">
-	<div class="footer__container">
-		<div class="footer__row">
-			<div class="footer__col col-span-2 row-span-2 hidden 2xl:block"></div>
-			<div class="footer__col col-span-4 lg:col-span-12 2xl:col-span-5">
-				<h2 id="footer-title" class="z-10 text-6xl font-normal not-italic lg:text-9xl">
-					Lust auf <br />Live-Musik?
-				</h2>
-			</div>
-			<div class="footer__col col-span-4 lg:col-span-12 2xl:col-span-5">
-				<p class="font-headings text-lg leading-8 text-neutral-500">
-					Deine Veranstaltung braucht Musik? Ich bin nur eine Mail entfernt:
-					<a class="text-neutral-800 dark:text-white" href="mailto:daniel.silva-yanez@gmx.de">
-						daniel.silva-yanez@gmx.de
-					</a>
-					Du kannst mich auch auf Instagram finden unter <a
-						class="text-neutral-800 dark:text-white"
-						href="https://www.instagram.com/daniel_silva_yanez/"
-					>
-						Auf Instagram schreiben
-					</a>.
-				</p>
-			</div>
+<footer class="footer" aria-label="Footer">
+	<div class="footer__inner">
+		<div class="footer__identity">
+			<strong>Daniel Silva Yañez</strong>
+			<span>Sänger &amp; Entertainer für Events</span>
 		</div>
+		<nav class="footer__links" aria-label="Kontakt">
+			<a href="mailto:daniel.silva-yanez@gmx.de">E-Mail</a>
+			<a href="https://www.instagram.com/daniel_silva_yanez/">Instagram</a>
+		</nav>
+		<small>© 2026 Daniel Silva Yañez</small>
 	</div>
 
 	<style>
 		.footer {
-			@apply relative flex items-end py-20 text-neutral-600 lg:py-32 dark:text-neutral-400;
-		}
-		.footer__container {
-			@apply container relative z-[1] mx-auto px-6;
-		}
-		.footer__row {
-			@apply grid grid-cols-4 justify-end gap-9 lg:grid-cols-12;
-		}
-		.footer__col {
-			@apply relative self-end;
-		}
-		.footer h2 {
-			color: #f2eee8;
-		}
-		.footer p {
+			border-top: 1px solid #332b25;
+			background: #171514;
 			color: #d8d1c8;
 		}
-		.footer p a {
-			color: #f28b3d;
-			text-decoration: underline;
-			text-decoration-color: rgba(242, 139, 61, 0.45);
-			text-underline-offset: 0.2em;
-			transition: color 0.2s ease, text-decoration-color 0.2s ease;
+		.footer__inner {
+			width: min(calc(100% - 3rem), 80rem);
+			min-height: 9rem;
+			margin-inline: auto;
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+			gap: 2rem;
 		}
-		.footer p a:hover,
-		.footer p a:focus-visible {
+		.footer__identity {
+			display: flex;
+			flex-direction: column;
+			gap: 0.35rem;
+		}
+		.footer__identity strong {
 			color: #f2eee8;
-			text-decoration-color: #f2eee8;
+			font-size: 1.05rem;
+			font-weight: 600;
 		}
-		.footer p a:focus-visible {
-			outline: 2px solid #f28b3d;
-			outline-offset: 3px;
+		.footer__identity span,
+		.footer small {
+			color: #9d958b;
+			font-size: 0.8rem;
 		}
 		.footer__links {
-			@apply flex flex-col gap-1 text-lg leading-8 text-neutral-600 dark:text-neutral-300 [&_a]:text-neutral-600 [&_a]:transition-colors [&_a]:duration-300 dark:[&_a]:text-neutral-300;
+			display: flex;
+			gap: 1.5rem;
 		}
-		.footer__link {
-			@apply flex items-center gap-2;
+		.footer__links a {
+			color: #f2eee8;
+			font-size: 0.85rem;
+			text-decoration: none;
+			transition: color 200ms ease;
+		}
+		.footer__links a:hover,
+		.footer__links a:focus-visible {
+			color: #f28b3d;
+		}
+		.footer__links a:focus-visible {
+			outline: 2px solid #f28b3d;
+			outline-offset: 4px;
+		}
+		@media (max-width: 767px) {
+			.footer__inner {
+				width: min(calc(100% - 2.5rem), 80rem);
+				min-height: 0;
+				padding-block: 2rem;
+				align-items: flex-start;
+				flex-direction: column;
+				gap: 1.25rem;
+			}
 		}
 	</style>
 </footer>
