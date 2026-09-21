@@ -474,6 +474,26 @@ const instagramPosts = [
 		max-width: none;
 		padding-inline: max(1.5rem, calc((100% - 80rem) / 2));
 	}
+	@media (min-width: 768px) {
+		.section--events {
+			display: grid;
+			grid-template-columns: minmax(0, 1.5fr) minmax(16rem, 1fr);
+			column-gap: 10%;
+		}
+		.section--events > .eyebrow,
+		.section--events > h2 {
+			grid-column: 1;
+		}
+		.section--events > .section__lead {
+			grid-column: 2;
+			grid-row: 2;
+			align-self: center;
+		}
+		.section--events > .event-list,
+		.section--events > .event-note {
+			grid-column: 1 / -1;
+		}
+	}
 	.section--events p,
 	.section--events .small {
 		color: #645b52;
@@ -735,6 +755,7 @@ const instagramPosts = [
 			margin: 3rem auto 0;
 		}
 		.section--events {
+			display: block;
 			padding-inline: var(--mobile-gutter);
 		}
 		.section--events h2 {

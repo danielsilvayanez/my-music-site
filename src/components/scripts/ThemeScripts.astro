@@ -5,13 +5,16 @@
 		if (!homepage) return
 		if (homepage.dataset.motionInitialized === 'true') return
 
-		homepage.dataset.motionInitialized = 'true'
-		homepage.classList.add('motion-enabled')
 		const motionItems = homepage.querySelectorAll('[data-motion]')
 		if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
 			motionItems.forEach((item) => item.classList.add('is-visible'))
+			homepage.dataset.motionInitialized = 'true'
 			return
 		}
+		if (!('IntersectionObserver' in window)) return
+
+		homepage.dataset.motionInitialized = 'true'
+		homepage.classList.add('motion-enabled')
 
 		const observer = new IntersectionObserver(
 			(entries, currentObserver) => {

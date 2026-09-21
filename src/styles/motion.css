@@ -21,7 +21,7 @@
 		transform 750ms cubic-bezier(0.22, 1, 0.36, 1);
 }
 
-.homepage [data-motion='section-heading'].is-visible {
+.homepage.motion-enabled [data-motion='section-heading'].is-visible {
 	clip-path: inset(0 0 0 0);
 }
 
