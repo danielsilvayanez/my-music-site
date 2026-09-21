@@ -1,4 +1,4 @@
-/* Homepage editorial motion. Legacy scroll-animation rules remain page-wide and untouched. */
+/* Homepage editorial motion. */
 .homepage.motion-enabled [data-motion] {
 	opacity: 0;
 	transform: translate3d(0, 1.25rem, 0);

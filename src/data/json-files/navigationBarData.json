@@ -5,16 +5,5 @@
 		{ "name": "Repertoire", "link": "#repertoire" },
 		{ "name": "Über mich", "link": "#about" },
 		{ "name": "Anfragen", "link": "#anfragen" }
-	],
-	"caseStudies": [
-		{ "name": "Home", "link": "/" },
-		{ "name": "Contact", "link": "#contact" }
-	],
-	"singleCaseStudy": [
-		{ "name": "Home", "link": "/" },
-		{ "name": "About the project", "link": "#about-the-project" },
-		{ "name": "What we did", "link": "#what-we-did" },
-		{ "name": "Client feedback", "link": "#client-feedback" },
-		{ "name": "Contact", "link": "#contact" }
 	]
 }

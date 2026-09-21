@@ -26,7 +26,6 @@ import '@fontsource-variable/nunito-sans'
 import '@fontsource-variable/playfair-display'
 
 // Data
-import { configData } from '../config/config'
 
 // Props
 type Props = {
@@ -51,9 +50,9 @@ const {
 ---
 
 <!doctype html>
-<html lang="de" class={`scroll-animation mode-light ${classes}`}>
+<html lang="de" class:list={['dark', classes]}>
 	<Header title={title} description={description} ogImage={ogImage} noindex={noindex} />
-	<body class:list={[{ ['scroll-animation']: configData.scrollAnimations }]}>
+	<body>
 		<GoogleTagManager />
 		{navigation !== 'none' && <NavigationBar type={navigation} />}
 		<Main>
