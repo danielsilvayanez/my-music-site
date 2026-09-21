@@ -17,29 +17,29 @@ const instagramPosts = [
 <Layout title={seo.title} description={seo.description} navigation="sticky">
 	<div class="homepage">
 		<section class="hero" aria-labelledby="hero-title">
-			<div class="hero__media" aria-hidden="true">
+			<div class="hero__media" data-motion="hero-media" aria-hidden="true">
 				<img src="/media/relaunch/f9197805-126f-496a-a013-29ff4c99662f.JPG" alt="" width="3072" height="4096" fetchpriority="high" />
 			</div>
 			<div class="hero__content container">
-				<p class="eyebrow">Live · Entertainment · Deutschlandweit</p><h1 id="hero-title">
-					Live-Musik,<br /><em>die dein Event</em><br />mitreißt.
-				</h1><p class="hero__intro">
+				<p class="eyebrow" data-motion="hero-eyebrow">Live · Entertainment · Deutschlandweit</p><h1 id="hero-title" data-motion="hero-headline">
+					<span>Live-Musik,</span><br /><span><em>die dein Event</em></span><br /><span>mitreißt.</span>
+				</h1><p class="hero__intro" data-motion="hero-intro">
 					Ich bin Daniel Silva Yañez – Sänger und Entertainer für private Feiern, Corporate Events,
 					Bars, Restaurants und besondere Anlässe.
-				</p><div class="hero__meta">
+				</p><div class="hero__meta" data-motion="hero-meta">
 					<span>Pop · Rock · Musical · Party-Klassiker</span><span
 						>Deutsch · Englisch · Spanisch</span>
-				</div><div class="hero__actions">
+				</div><div class="hero__actions" data-motion="hero-actions">
 					<a class="button button--primary" href="#anfragen">Event anfragen <span>↗</span></a><a
 						class="button button--text"
 						href="#live">Live erleben <span>↓</span></a>
 				</div>
 			</div>
-			<p class="hero__scroll" aria-hidden="true">Weiter entdecken <span>↓</span></p>
+			<p class="hero__scroll" data-motion="hero-scroll" aria-hidden="true">Weiter entdecken <span>↓</span></p>
 		</section>
 
 		<section id="live" class="section section--live container" aria-labelledby="live-title">
-			<div class="section__intro">
+			<div class="section__intro" data-motion="section-copy">
 				<p class="eyebrow">Live erleben</p><h2 id="live-title">
 					So klingt ein Abend<br /><em>mit mir.</em>
 				</h2><p>Echte Auftritte, echte Stimmung, echtes Publikum.</p>
@@ -47,32 +47,33 @@ const instagramPosts = [
 				class="media-placeholder--reel"
 				url="https://www.instagram.com/p/DcbslsRK2r_/"
 				title="Live-Auftritt von Daniel Silva Yañez"
-			/><div class="section__meta">
+				motion="media"
+			/><div class="section__meta" data-motion="meta">
 				<span>Pop · Rock · Musical · Party</span><span>Deutsch · Englisch · Spanisch</span><span
 					>Deutschlandweit buchbar</span>
 			</div>
 		</section>
 
 		<section id="events" class="section section--events container" aria-labelledby="events-title">
-			<p class="eyebrow">Für jeden Anlass</p><h2 id="events-title">
+			<p class="eyebrow" data-motion="section-eyebrow">Für jeden Anlass</p><h2 id="events-title" data-motion="section-heading">
 				Für Events, die mehr als<br /><em>Hintergrundmusik</em> brauchen.
-			</h2><p class="section__lead">
+			</h2><p class="section__lead" data-motion="section-lead">
 				Ob private Feier, Firmenveranstaltung oder Abendprogramm – ich passe Setlist, Stimmung und
 				Ablauf an den jeweiligen Anlass an.
-			</p><div class="event-list">
+			</p><div class="event-list" data-motion="stagger">
 				<div><span>01</span><h3>Private Feiern & Geburtstage</h3></div><div>
 					<span>02</span><h3>Corporate Events & Firmenfeiern</h3>
 				</div><div><span>03</span><h3>Bars, Restaurants & Hotels</h3></div><div>
 					<span>04</span><h3>Weihnachtsfeiern</h3>
 				</div>
-			</div><aside class="event-note">
+			</div><aside class="event-note" data-motion="note">
 				<strong>Hochzeit oder Trauung geplant?</strong><span
 					>Auf Anfrage sind auch Duo-Auftritte möglich.</span>
 			</aside>
 		</section>
 
 		<section class="section section--statement" aria-labelledby="statement-title">
-			<div class="statement__image">
+			<div class="statement__image" data-motion="reveal-media">
 				<img
 					src="/media/relaunch/9e29d5b7-3b17-4099-acb5-5c2e48c39e37.JPG"
 					alt="Daniel Silva Yañez als Sänger"
@@ -80,14 +81,14 @@ const instagramPosts = [
 					height="415"
 					loading="lazy"
 				/>
-			</div><div class="statement__content">
+			</div><div class="statement__content" data-motion="section-copy">
 				<p class="eyebrow">Meine Haltung auf der Bühne</p><h2 id="statement-title">
 					Nicht nur singen.<br /><em>Menschen mitnehmen.</em>
-				</h2><p>
+				</h2><p data-motion="section-lead">
 					Für mich geht es bei einem Auftritt nicht nur darum, Songs sauber zu performen. Ich möchte
 					Atmosphäre schaffen, auf das Publikum reagieren und dafür sorgen, dass aus einem
 					Programmpunkt ein echter Moment wird.
-				</p><div class="statement__themes">
+				</p><div class="statement__themes" data-motion="stagger">
 					<div>
 						<strong>Publikumsnähe</strong><span
 							>Ich lese den Raum und gehe auf die Stimmung vor Ort ein.</span>
@@ -103,15 +104,15 @@ const instagramPosts = [
 		</section>
 
 		<section id="repertoire" class="section section--range container" aria-labelledby="range-title">
-			<div>
+			<div data-motion="section-copy">
 				<p class="eyebrow">Musikalische Bandbreite</p><h2 id="range-title">
 					Von Gänsehaut<br /><em>bis Mitsingen.</em>
 				</h2>
-			</div><div class="range__copy">
+			</div><div class="range__copy" data-motion="section-copy">
 				<p>
 					Mein Repertoire reicht von ruhigen Balladen bis zu energiegeladenen Party-Klassikern – mit
 					Songs aus mehreren Jahrzehnten und in mehreren Sprachen.
-				</p><div class="range__words">
+				</p><div class="range__words" data-motion="chips">
 					<span>Pop</span><span>Rock</span><span>Musical</span><span>Balladen</span><span
 						>Party-Klassiker</span
 					><span>80er</span><span>90er</span><span>2000er</span><span>aktuelle Songs</span>
@@ -122,11 +123,11 @@ const instagramPosts = [
 		</section>
 
 		<section class="section section--formats container" aria-labelledby="formats-title">
-			<p class="eyebrow">Flexible Setups</p><h2 id="formats-title">
+			<p class="eyebrow" data-motion="section-eyebrow">Flexible Setups</p><h2 id="formats-title" data-motion="section-heading">
 				So kann dein Event<br /><em>klingen.</em>
-			</h2><p class="section__lead">
+			</h2><p class="section__lead" data-motion="section-lead">
 				Je nach Anlass kann ich flexibel in unterschiedlichen Setups auftreten.
-			</p><div class="format-list">
+			</p><div class="format-list" data-motion="stagger">
 				<article>
 					<span>01 / Standard</span><h3>Solo mit Instrumental-Playbacks</h3><p>
 						Mein Standard-Setup für private Feiern, Firmenveranstaltungen, Bars und ähnliche Events.
@@ -147,11 +148,11 @@ const instagramPosts = [
 		</section>
 
 		<section class="section section--gallery container" aria-labelledby="gallery-title">
-			<div class="gallery__heading">
+			<div class="gallery__heading" data-motion="section-copy">
 				<p class="eyebrow">Eindrücke</p><h2 id="gallery-title">
 					Live. Echt.<br /><em>Mittendrin.</em>
 				</h2><p>Ein paar Eindrücke von Auftritten, Bühnenmomenten und Abenden mit Publikum.</p>
-			</div><div class="gallery__images">
+			</div><div class="gallery__images" data-motion="stagger">
 				{instagramPosts.map((url, index) => (
 					<InstagramEmbed url={url} title={`Live Performance ${index + 1}`} />
 				))}
@@ -159,11 +160,11 @@ const instagramPosts = [
 		</section>
 
 		<section id="about" class="section section--about container" aria-labelledby="about-title">
-			<div>
+			<div data-motion="section-copy">
 				<p class="eyebrow">Über mich</p><h2 id="about-title">
 					Bühne ist für mich<br /><em>mehr als ein Auftritt.</em>
 				</h2>
-			</div><div>
+			</div><div data-motion="section-copy">
 				<p>
 					Musik hat mein Leben verändert. Mit der Gitarre fing alles an, später kamen Gesang und
 					Keyboard dazu. Auf der Bühne – ob mit Bands, in Chören, bei Musicals oder als Entertainer
@@ -176,9 +177,9 @@ const instagramPosts = [
 		</section>
 
 		<section class="section section--process container" aria-labelledby="process-title">
-			<p class="eyebrow">Der Weg zu deinem Event</p><h2 id="process-title">
+			<p class="eyebrow" data-motion="section-eyebrow">Der Weg zu deinem Event</p><h2 id="process-title" data-motion="section-heading">
 				So einfach<br /><em>geht’s.</em>
-			</h2><div class="process-list">
+			</h2><div class="process-list" data-motion="stagger">
 				<div>
 					<span>01</span><h3>Anfrage senden</h3><p>
 						Schreib mir per E-Mail oder Instagram mit Datum, Ort und ein paar Infos zu deinem Event.
@@ -197,12 +198,12 @@ const instagramPosts = [
 
 		<section id="anfragen" class="section section--cta" aria-labelledby="cta-title">
 			<div class="container">
-				<p class="eyebrow">Lass uns loslegen</p><h2 id="cta-title">
+				<p class="eyebrow" data-motion="section-eyebrow">Lass uns loslegen</p><h2 id="cta-title" data-motion="section-heading">
 					Lust auf Live-Musik,<br /><em>die dein Event mitnimmt?</em>
-				</h2><p>
+				</h2><p data-motion="section-lead">
 					Erzähl mir kurz, was du planst – ich melde mich mit einem passenden Vorschlag für Ablauf,
 					Setup und Auftrittsdauer.
-				</p><div class="cta__actions">
+				</p><div class="cta__actions" data-motion="cta-actions">
 					<a class="button button--primary" href="mailto:daniel.silva-yanez@gmx.de"
 						>Event anfragen <span>↗</span></a
 					><a class="button button--outline" href="https://www.instagram.com/daniel_silva_yanez/"
