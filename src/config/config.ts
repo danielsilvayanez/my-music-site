@@ -15,6 +15,6 @@ export const configData: Config = {
 	siteDescription:
 		'Sänger & Entertainer für private Feiern, Firmenveranstaltungen, Bars, Restaurants und Weihnachtsfeiern – deutschlandweit buchbar.',
 	ogImage: '/og-daniel.jpg',
-	siteUrl: 'https://danielsilvayanez.vercel.app',
+	siteUrl: 'https://danielsilvayanez.com',
 	noindex: false
 }
