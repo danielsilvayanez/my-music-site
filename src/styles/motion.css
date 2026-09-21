@@ -1,0 +1,217 @@
+/* Homepage editorial motion. Legacy scroll-animation rules remain page-wide and untouched. */
+.homepage.motion-enabled [data-motion] {
+	opacity: 0;
+	transform: translate3d(0, 1.25rem, 0);
+	transition:
+		opacity 650ms cubic-bezier(0.22, 1, 0.36, 1),
+		transform 650ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.homepage.motion-enabled [data-motion].is-visible {
+	opacity: 1;
+	transform: none;
+}
+
+.homepage [data-motion='section-heading'] {
+	clip-path: inset(0 0 100% 0);
+	transform: translate3d(0, 0.5rem, 0);
+	transition:
+		clip-path 750ms cubic-bezier(0.22, 1, 0.36, 1),
+		opacity 650ms cubic-bezier(0.22, 1, 0.36, 1),
+		transform 750ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.homepage [data-motion='section-heading'].is-visible {
+	clip-path: inset(0 0 0 0);
+}
+
+.homepage [data-motion='section-copy'] > * {
+	opacity: 0;
+	transform: translate3d(0, 0.75rem, 0);
+	transition:
+		opacity 550ms cubic-bezier(0.22, 1, 0.36, 1),
+		transform 550ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.homepage [data-motion='section-copy'].is-visible > * {
+	opacity: 1;
+	transform: none;
+}
+
+.homepage [data-motion='section-copy'] > *:nth-child(1) { transition-delay: 40ms; }
+.homepage [data-motion='section-copy'] > *:nth-child(2) { transition-delay: 120ms; }
+.homepage [data-motion='section-copy'] > *:nth-child(3) { transition-delay: 220ms; }
+
+.homepage [data-motion='hero-media'] {
+	opacity: 0;
+	transform: scale(1.045);
+	transition:
+		opacity 900ms cubic-bezier(0.22, 1, 0.36, 1),
+		transform 1400ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.homepage [data-motion='hero-media'].is-visible {
+	opacity: 1;
+	transform: scale(1);
+}
+
+.homepage [data-motion='hero-headline'] span {
+	display: inline-block;
+	transform: translate3d(0, 105%, 0);
+	transition: transform 750ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+.homepage [data-motion='hero-headline'] { overflow: hidden; }
+
+.homepage [data-motion='hero-headline'].is-visible span {
+	transform: none;
+}
+
+.homepage [data-motion='hero-headline'] span:nth-child(1) { transition-delay: 80ms; }
+.homepage [data-motion='hero-headline'] span:nth-child(2) { transition-delay: 170ms; }
+.homepage [data-motion='hero-headline'] span:nth-child(3) { transition-delay: 260ms; }
+
+.homepage [data-motion='hero-eyebrow'] { transition-delay: 80ms; }
+.homepage [data-motion='hero-intro'] { transition-delay: 420ms; }
+.homepage [data-motion='hero-meta'] { transition-delay: 500ms; }
+.homepage [data-motion='hero-actions'] { transition-delay: 580ms; }
+.homepage [data-motion='hero-scroll'] { transition-delay: 760ms; }
+
+.homepage [data-motion='reveal-media'] {
+	clip-path: inset(0 100% 0 0);
+	transition:
+		clip-path 850ms cubic-bezier(0.22, 1, 0.36, 1),
+		opacity 650ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.homepage [data-motion='reveal-media'].is-visible { clip-path: inset(0 0 0 0); }
+
+.homepage [data-motion='stagger'] > * {
+	opacity: 0;
+	transform: translate3d(0, 1.25rem, 0);
+	transition:
+		opacity 550ms cubic-bezier(0.22, 1, 0.36, 1),
+		transform 550ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.homepage [data-motion='stagger'].is-visible > * {
+	opacity: 1;
+	transform: none;
+}
+
+.homepage [data-motion='stagger'] > *:nth-child(1) { transition-delay: 40ms; }
+.homepage [data-motion='stagger'] > *:nth-child(2) { transition-delay: 100ms; }
+.homepage [data-motion='stagger'] > *:nth-child(3) { transition-delay: 160ms; }
+.homepage [data-motion='stagger'] > *:nth-child(4) { transition-delay: 220ms; }
+.homepage [data-motion='stagger'] > *:nth-child(5) { transition-delay: 280ms; }
+.homepage [data-motion='stagger'] > *:nth-child(6) { transition-delay: 340ms; }
+.homepage [data-motion='stagger'] > *:nth-child(7) { transition-delay: 400ms; }
+.homepage [data-motion='stagger'] > *:nth-child(8) { transition-delay: 460ms; }
+.homepage [data-motion='stagger'] > *:nth-child(9) { transition-delay: 520ms; }
+
+.homepage [data-motion='chips'] > * {
+	opacity: 0;
+	transform: translate3d(0, 0.5rem, 0);
+	transition:
+		opacity 450ms cubic-bezier(0.22, 1, 0.36, 1),
+		transform 450ms cubic-bezier(0.22, 1, 0.36, 1),
+		border-color 200ms ease,
+		color 200ms ease;
+}
+
+.homepage [data-motion='chips'].is-visible > * { opacity: 1; transform: none; }
+.homepage [data-motion='chips'] > *:nth-child(1) { transition-delay: 40ms; }
+.homepage [data-motion='chips'] > *:nth-child(2) { transition-delay: 80ms; }
+.homepage [data-motion='chips'] > *:nth-child(3) { transition-delay: 120ms; }
+.homepage [data-motion='chips'] > *:nth-child(4) { transition-delay: 160ms; }
+.homepage [data-motion='chips'] > *:nth-child(5) { transition-delay: 200ms; }
+.homepage [data-motion='chips'] > *:nth-child(6) { transition-delay: 240ms; }
+.homepage [data-motion='chips'] > *:nth-child(7) { transition-delay: 280ms; }
+.homepage [data-motion='chips'] > *:nth-child(8) { transition-delay: 320ms; }
+.homepage [data-motion='chips'] > *:nth-child(9) { transition-delay: 360ms; }
+
+.homepage [data-motion='line-draw'] { position: relative; }
+.homepage [data-motion='line-draw']::before {
+	content: '';
+	position: absolute;
+	inset: 0 auto auto 0;
+	width: 0;
+	height: 1px;
+	background: currentColor;
+	transition: width 700ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+.homepage [data-motion='line-draw'].is-visible::before { width: 100%; }
+
+.homepage .event-list[data-motion='stagger'],
+.homepage .statement__themes[data-motion='stagger'] {
+	position: relative;
+	border-top-color: transparent;
+}
+.homepage .event-list[data-motion='stagger']::before,
+.homepage .statement__themes[data-motion='stagger']::before {
+	content: '';
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 0;
+	height: 1px;
+	background: currentColor;
+	transition: width 700ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+.homepage .event-list[data-motion='stagger'].is-visible::before,
+.homepage .statement__themes[data-motion='stagger'].is-visible::before { width: 100%; }
+.homepage .statement__themes[data-motion='stagger'] > div {
+	position: relative;
+	border-bottom-color: transparent;
+}
+.homepage .statement__themes[data-motion='stagger'] > div::after {
+	content: '';
+	position: absolute;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	height: 1px;
+	background: currentColor;
+	transform: scaleX(0);
+	transform-origin: left;
+	transition: transform 650ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+.homepage .statement__themes[data-motion='stagger'].is-visible > div::after { transform: scaleX(1); }
+
+.homepage .button span,
+.homepage .instagram-embed__fallback span:last-child { transition: transform 220ms cubic-bezier(0.22, 1, 0.36, 1); }
+.homepage .button:hover span,
+.homepage .instagram-embed__fallback:hover span:last-child { transform: translate3d(4px, -3px, 0); }
+.homepage .button:focus-visible,
+.homepage .instagram-embed__fallback:focus-visible { outline: 2px solid #f28b3d; outline-offset: 4px; }
+.homepage .range__words span:hover { border-color: #f28b3d; color: #f28b3d; transform: translateY(-2px); }
+.homepage .format-list article { transition: border-color 250ms ease, transform 250ms cubic-bezier(0.22, 1, 0.36, 1); }
+.homepage .format-list article:hover { border-color: #f28b3d; transform: translateY(-4px); }
+
+@media (max-width: 767px) {
+	.homepage [data-motion='stagger'] > * { transform: translate3d(0, 0.75rem, 0); }
+	.homepage [data-motion='chips'] > * { transform: translate3d(0, 0.35rem, 0); }
+	.homepage [data-motion='stagger'] > *:nth-child(n + 6) { transition-delay: 220ms; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.homepage.motion-enabled [data-motion],
+	.homepage [data-motion='hero-headline'] span,
+	.homepage [data-motion='section-copy'] > *,
+	.homepage [data-motion='stagger'] > *,
+	.homepage [data-motion='chips'] > *,
+	.homepage .event-list[data-motion='stagger']::before,
+	.homepage .statement__themes[data-motion='stagger']::before,
+	.homepage .statement__themes[data-motion='stagger'] > div::after {
+		opacity: 1;
+		transform: none;
+		clip-path: none;
+		transition: none;
+	}
+	.homepage .event-list[data-motion='stagger'],
+	.homepage .statement__themes[data-motion='stagger'] { border-top-color: initial; }
+	.homepage .statement__themes[data-motion='stagger'] > div { border-bottom-color: initial; }
+	.homepage [data-motion='hero-media'] { opacity: 1; }
+	.homepage .button:hover,
+	.homepage .format-list article:hover,
+	.homepage .range__words span:hover { transform: none; }
+}

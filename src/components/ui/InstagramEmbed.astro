@@ -3,15 +3,16 @@ type Props = {
 	url: string
 	title: string
 	class?: string
+	motion?: string
 }
 
-const { url, title, class: className } = Astro.props
+const { url, title, class: className, motion } = Astro.props
 const parsedUrl = new URL(url)
 const postPath = parsedUrl.pathname.match(/^\/(?:p|reel)\/([^/]+)/)?.[1]
 const embedUrl = postPath ? `https://www.instagram.com/p/${postPath}/embed/` : url
 ---
 
-<div class:list={['instagram-embed', className]}>
+<div class:list={['instagram-embed', className]} data-motion={motion}>
 	<iframe
 		src={embedUrl}
 		title={title}
