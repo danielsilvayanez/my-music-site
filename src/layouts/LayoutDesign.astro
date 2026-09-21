@@ -13,7 +13,6 @@
 import NavigationBar from '../components/ui/NavigationBar.astro'
 import Main from '../components/ui/Main.astro'
 import Header from '../components/blocks/head/Header.astro'
-import ContactMe from '../components/blocks/footer/ContactMe.astro'
 // Scripts
 import Scripts from '../components/scripts/ThemeScripts.astro'
 import GoogleTagManager from '../components/scripts/googleTagManagerBody.astro'
@@ -35,7 +34,6 @@ type Props = {
 	noindex?: boolean
 	navigation?: 'none' | 'sticky'
 	classes?: string
-	footer?: boolean
 }
 // Page Metadata
 const {
@@ -44,8 +42,7 @@ const {
 	ogImage,
 	noindex,
 	navigation = 'sticky',
-	classes,
-	footer = true
+	classes
 } = Astro.props
 ---
 
@@ -57,7 +54,6 @@ const {
 		{navigation !== 'none' && <NavigationBar type={navigation} />}
 		<Main>
 			<slot />
-			{footer && <ContactMe />}
 		</Main>
 		<Scripts />
 	</body>
