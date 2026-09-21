@@ -71,7 +71,7 @@
 <!-- Homepage editorial motion -->
 <script>
 	const initHomepageMotion = () => {
-		const homepage = document.querySelector('.homepage')
+		const homepage = document.querySelector<HTMLElement>('.homepage')
 		if (!homepage) return
 		if (homepage.dataset.motionInitialized === 'true') return
 
