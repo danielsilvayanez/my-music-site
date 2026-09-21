@@ -52,7 +52,7 @@ function isActivePath(currentPath: string): boolean {
 			{/* Menu toggle - Mobile only */}
 			<button
 				id="mobile-menu-toggle"
-				class="mobile-menu-toggle lg:hidden"
+				class="mobile-menu-toggle"
 				aria-expanded="false"
 				aria-controls="mobile-menu"
 				aria-label="Toggle navigation"
@@ -63,7 +63,7 @@ function isActivePath(currentPath: string): boolean {
 			</button>
 
 			{/* Desktop Navigation */}
-			<div class="desktop-nav hidden lg:flex">
+			<div class="desktop-nav">
 				<ul>
 					{
 						navItems.map((item) => (
@@ -83,7 +83,7 @@ function isActivePath(currentPath: string): boolean {
 	</div>
 
 	{/* Mobile Menu Overlay */}
-	<div id="mobile-menu" class="mobile-menu lg:hidden">
+	<div id="mobile-menu" class="mobile-menu">
 		<div class="mobile-menu-content">
 			<ul>
 				{
@@ -215,6 +215,9 @@ function isActivePath(currentPath: string): boolean {
 		padding: 0;
 		margin: 0;
 	}
+	.desktop-nav {
+		display: none;
+	}
 	.nav-link {
 		font-size: 1rem;
 		font-weight: 500;
@@ -238,5 +241,29 @@ function isActivePath(currentPath: string): boolean {
 	:global(.dark) .nav-link:hover,
 	:global(.dark) .nav-link.active {
 		color: #8c55fd;
+	}
+	@media (min-width: 768px) {
+		.mobile-menu-toggle,
+		.mobile-menu {
+			display: none;
+		}
+		.desktop-nav {
+			display: block;
+		}
+		.desktop-nav ul {
+			align-items: center;
+			gap: clamp(1.25rem, 2.5vw, 2.5rem);
+		}
+	}
+	@media (max-width: 767px) {
+		.desktop-nav {
+			display: none;
+		}
+		.mobile-menu-toggle {
+			display: flex;
+		}
+		.mobile-menu {
+			display: block;
+		}
 	}
 </style>
