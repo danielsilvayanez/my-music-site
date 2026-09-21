@@ -6,7 +6,7 @@ import vercel from "@astrojs/vercel/serverless";
 
 // https://astro.build/config
 export default defineConfig({
-  site: "https://danielsilvayanez.vercel.app",
+  site: "https://danielsilvayanez.com",
   integrations: [
     tailwind(),
     sitemap(),
