@@ -234,6 +234,7 @@ const instagramPosts = [
 		background: #11100f;
 		color: #e9e4dc;
 		overflow: hidden;
+		--mobile-gutter: 1.25rem;
 	}
 	.homepage h2,
 	.homepage h3 {
@@ -698,8 +699,11 @@ const instagramPosts = [
 		color: #9d958b;
 	}
 	@media (max-width: 767px) {
+		.section {
+			padding-block: 5rem;
+		}
 		.container {
-			width: min(100% - 2rem, 80rem);
+			width: min(calc(100% - (2 * var(--mobile-gutter))), 80rem);
 		}
 		.hero {
 			min-height: 44rem;
@@ -737,7 +741,7 @@ const instagramPosts = [
 			margin: 3rem auto 0;
 		}
 		.section--events {
-			padding-inline: 1rem;
+			padding-inline: var(--mobile-gutter);
 		}
 		.event-list,
 		.format-list,
@@ -745,19 +749,38 @@ const instagramPosts = [
 			grid-template-columns: 1fr;
 			margin-top: 3rem;
 		}
+		.event-list div {
+			padding-block: 1.25rem;
+		}
 		.event-note {
 			padding-left: 0;
+			margin-top: 1.5rem;
+		}
+		.section--statement {
+			width: calc(100% - (2 * var(--mobile-gutter)));
 		}
 		.statement__image {
-			margin-bottom: 3rem;
+			margin-bottom: 3.5rem;
+		}
+		.statement__content > p {
+			margin-top: 1.25rem;
 		}
 		.statement__themes div {
 			grid-template-columns: 1fr;
-			gap: 0.4rem;
+			gap: 0.5rem;
+			padding-block: 1.25rem;
+		}
+		.format-list article,
+		.process-list div {
+			padding: 1.25rem;
+		}
+		.format-list h3,
+		.process-list h3 {
+			margin: 2.25rem 0 0.75rem;
 		}
 		.range__copy,
 		.section--about > div:last-child {
-			padding-top: 2rem;
+			padding-top: 2.5rem;
 		}
 		.gallery__images {
 			margin-top: 3rem;
