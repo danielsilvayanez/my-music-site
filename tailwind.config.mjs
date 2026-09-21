@@ -77,8 +77,6 @@ export default {
       fontFamily: {
         playfair: ["Playfair Display Variable", ...defaultTheme.fontFamily.serif],
         nunito: ["Nunito Sans Variable", ...defaultTheme.fontFamily.sans],
-        ubuntu: ["Ubuntu", ...defaultTheme.fontFamily.sans],
-        robotoMono: ["Roboto Mono Variable", ...defaultTheme.fontFamily.mono],
       },
       keyframes: {
         dropdown: {
@@ -104,5 +102,5 @@ export default {
   variants: {
     animation: ["responsive"],
   },
-  plugins: [require("@tailwindcss/typography")],
+  plugins: [],
 };
