@@ -4,16 +4,13 @@
 // Description: A component that displays a contact me section with a title, first column, and second column.
 ---
 
-<footer id="contact" class="footer">
+<footer id="contact" class="footer" aria-labelledby="footer-title">
 	<div class="footer__container">
 		<div class="footer__row">
 			<div class="footer__col col-span-2 row-span-2 hidden 2xl:block"></div>
 			<div class="footer__col col-span-4 lg:col-span-12 2xl:col-span-5">
-				<span
-					class="animate absolute -left-40 -top-52 z-[-1] size-80 rounded-full bg-primary-400 object-cover lg:-left-72 lg:-top-72 lg:size-[31.25rem] dark:bg-secondary-400"
-				></span>
-				<h2 class="font-normal animate z-10 text-6xl not-italic lg:text-9xl">
-					Lass mal <br />vernetzen
+				<h2 id="footer-title" class="animate z-10 text-6xl font-normal not-italic lg:text-9xl">
+					Lust auf <br />Live-Musik?
 				</h2>
 			</div>
 			<div class="footer__col col-span-4 lg:col-span-12 2xl:col-span-5">
@@ -22,13 +19,11 @@
 					<a class="text-neutral-800 dark:text-white" href="mailto:daniel.silva-yanez@gmx.de">
 						daniel.silva-yanez@gmx.de
 					</a>
-					ja, man kann auch noch anrufen
-					<a class="text-neutral-800 dark:text-white" href="tel:+4917649166600"> 017649166600</a>.
 					Du kannst mich auch auf Instagram finden unter <a
 						class="text-neutral-800 dark:text-white"
 						href="https://www.instagram.com/daniel_silva_yanez/"
 					>
-						https://www.instagram.com/daniel_silva_yanez/
+						Auf Instagram schreiben
 					</a>.
 				</p>
 			</div>
@@ -37,7 +32,7 @@
 
 	<style>
 		.footer {
-			@apply relative flex min-h-[800px] items-end py-12 text-neutral-600 lg:pb-40 lg:pt-60 2xl:py-40 dark:text-neutral-400;
+			@apply relative flex items-end py-20 text-neutral-600 lg:py-32 dark:text-neutral-400;
 		}
 		.footer__container {
 			@apply container relative z-[1] mx-auto px-6;
@@ -47,6 +42,28 @@
 		}
 		.footer__col {
 			@apply relative self-end;
+		}
+		.footer h2 {
+			color: #f2eee8;
+		}
+		.footer p {
+			color: #d8d1c8;
+		}
+		.footer p a {
+			color: #f28b3d;
+			text-decoration: underline;
+			text-decoration-color: rgba(242, 139, 61, 0.45);
+			text-underline-offset: 0.2em;
+			transition: color 0.2s ease, text-decoration-color 0.2s ease;
+		}
+		.footer p a:hover,
+		.footer p a:focus-visible {
+			color: #f2eee8;
+			text-decoration-color: #f2eee8;
+		}
+		.footer p a:focus-visible {
+			outline: 2px solid #f28b3d;
+			outline-offset: 3px;
 		}
 		.footer__links {
 			@apply flex flex-col gap-1 text-lg leading-8 text-neutral-600 dark:text-neutral-300 [&_a]:text-neutral-600 [&_a]:transition-colors [&_a]:duration-300 dark:[&_a]:text-neutral-300;

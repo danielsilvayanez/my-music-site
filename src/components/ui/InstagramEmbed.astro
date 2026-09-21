@@ -1,0 +1,68 @@
+---
+type Props = {
+	url: string
+	title: string
+	class?: string
+}
+
+const { url, title, class: className } = Astro.props
+const parsedUrl = new URL(url)
+const postPath = parsedUrl.pathname.match(/^\/(?:p|reel)\/([^/]+)/)?.[1]
+const embedUrl = postPath ? `https://www.instagram.com/p/${postPath}/embed/` : url
+---
+
+<div class:list={['instagram-embed', className]}>
+	<iframe
+		src={embedUrl}
+		title={title}
+		loading="lazy"
+		allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
+		allowfullscreen
+		referrerpolicy="strict-origin-when-cross-origin"
+	></iframe>
+	<a class="instagram-embed__fallback" href={url} target="_blank" rel="noreferrer">
+		<span>Instagram Reel</span><span>Auf Instagram ansehen <span aria-hidden="true">↗</span></span>
+	</a>
+</div>
+
+<style>
+	.instagram-embed {
+		position: relative;
+		display: grid;
+		grid-template-rows: minmax(0, 1fr) auto;
+		min-width: 0;
+		overflow: hidden;
+		aspect-ratio: 4 / 5;
+		background: #171514;
+		border: 1px solid #4b382a;
+		border-radius: 0.25rem;
+	}
+	.instagram-embed iframe {
+		display: block;
+		width: 100%;
+		height: 100%;
+		min-height: 0;
+		aspect-ratio: auto;
+		border: 0;
+	}
+	.instagram-embed__fallback {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		gap: 1rem;
+		padding: 0.65rem 0.85rem;
+		color: #f28b3d;
+		font: 600 0.7rem/1.2 ui-sans-serif, system-ui, sans-serif;
+		letter-spacing: 0.08em;
+		text-decoration: none;
+		text-transform: uppercase;
+	}
+	.instagram-embed__fallback:hover,
+	.instagram-embed__fallback:focus-visible {
+		color: #f2eee8;
+	}
+	.instagram-embed__fallback:focus-visible {
+		outline: 2px solid #f28b3d;
+		outline-offset: -3px;
+	}
+</style>

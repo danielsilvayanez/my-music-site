@@ -1,12 +1,10 @@
 {
 	"home": [
-		{ "name": "About me", "link": "#about" },
-		{ "name": "Experience", "link": "#experience" },
-		{ "name": "Skills & Tools", "link": "#skills" },
-		{ "name": "Feedback", "link": "#feedback" },
-		{ "name": "Sound Samples", "link": "#sound-samples" },
-		{ "name": "Prices", "link": "#prices" },
-		{ "name": "Contact", "link": "#contact" }
+		{ "name": "Live", "link": "#live" },
+		{ "name": "Events", "link": "#events" },
+		{ "name": "Repertoire", "link": "#repertoire" },
+		{ "name": "Über mich", "link": "#about" },
+		{ "name": "Anfragen", "link": "#anfragen" }
 	],
 	"caseStudies": [
 		{ "name": "Home", "link": "/" },
