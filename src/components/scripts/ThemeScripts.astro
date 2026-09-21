@@ -5,13 +5,16 @@
 		if (!homepage) return
 		if (homepage.dataset.motionInitialized === 'true') return
 
-		homepage.dataset.motionInitialized = 'true'
-		homepage.classList.add('motion-enabled')
-		const motionItems = homepage.querySelectorAll('[data-motion]')
+		const motionItems = homepage.querySelectorAll<HTMLElement>('[data-motion]')
 		if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
 			motionItems.forEach((item) => item.classList.add('is-visible'))
+			homepage.dataset.motionInitialized = 'true'
 			return
 		}
+		if (!('IntersectionObserver' in window)) return
+
+		homepage.dataset.motionInitialized = 'true'
+		homepage.classList.add('motion-enabled')
 
 		const observer = new IntersectionObserver(
 			(entries, currentObserver) => {
@@ -24,7 +27,23 @@
 			{ rootMargin: '0px 0px -10% 0px', threshold: 0.12 }
 		)
 
+		const revealVisibleItems = () => {
+			motionItems.forEach((item) => {
+				const bounds = item.getBoundingClientRect()
+				if (bounds.bottom <= 0 || bounds.top >= window.innerHeight) return
+				item.classList.add('is-visible')
+				observer.unobserve(item)
+			})
+		}
+
 		motionItems.forEach((item) => observer.observe(item))
+		requestAnimationFrame(revealVisibleItems)
+		window.setTimeout(() => {
+			motionItems
+				.forEach((item) => {
+					if (item.dataset.motion === 'section-heading') item.classList.add('is-visible')
+				})
+		}, 1200)
 	}
 
 	if (document.readyState === 'loading') {
