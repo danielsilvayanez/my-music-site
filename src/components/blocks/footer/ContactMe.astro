@@ -43,6 +43,28 @@
 		.footer__col {
 			@apply relative self-end;
 		}
+		.footer h2 {
+			color: #f2eee8;
+		}
+		.footer p {
+			color: #d8d1c8;
+		}
+		.footer p a {
+			color: #f28b3d;
+			text-decoration: underline;
+			text-decoration-color: rgba(242, 139, 61, 0.45);
+			text-underline-offset: 0.2em;
+			transition: color 0.2s ease, text-decoration-color 0.2s ease;
+		}
+		.footer p a:hover,
+		.footer p a:focus-visible {
+			color: #f2eee8;
+			text-decoration-color: #f2eee8;
+		}
+		.footer p a:focus-visible {
+			outline: 2px solid #f28b3d;
+			outline-offset: 3px;
+		}
 		.footer__links {
 			@apply flex flex-col gap-1 text-lg leading-8 text-neutral-600 dark:text-neutral-300 [&_a]:text-neutral-600 [&_a]:transition-colors [&_a]:duration-300 dark:[&_a]:text-neutral-300;
 		}
