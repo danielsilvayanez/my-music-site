@@ -3,6 +3,15 @@ import Layout from '../layouts/LayoutDesign.astro'
 import InstagramEmbed from '../components/ui/InstagramEmbed.astro'
 import siteSettings from '../data/json-files/site-settings.json'
 const { seo } = siteSettings
+const instagramPosts = [
+	'https://www.instagram.com/p/DcbslsRK2r_/',
+	'https://www.instagram.com/p/DdBOLOCqnum/',
+	'https://www.instagram.com/p/DcmSWqUKY6q/',
+	'https://www.instagram.com/p/DY2W3M_qdgv/',
+	'https://www.instagram.com/p/DbVlAeBKtKP/',
+	'https://www.instagram.com/p/DYb5M0AqR-E/',
+	'https://www.instagram.com/p/DdZZw4Ptnwu/',
+]
 ---
 
 <Layout title={seo.title} description={seo.description} navigation="sticky">
@@ -143,19 +152,9 @@ const { seo } = siteSettings
 					Live. Echt.<br /><em>Mittendrin.</em>
 				</h2><p>Ein paar Eindrücke von Auftritten, Bühnenmomenten und Abenden mit Publikum.</p>
 			</div><div class="gallery__images">
-				<InstagramEmbed
-					url="https://www.instagram.com/p/DcbslsRK2r_/"
-					title="Live-Auftritt von Daniel Silva Yañez"
-				/><InstagramEmbed
-					url="https://www.instagram.com/p/DdBOLOCqnum/"
-					title="Live-Auftritt von Daniel Silva Yañez"
-				/><InstagramEmbed
-					url="https://www.instagram.com/p/DcmSWqUKY6q/"
-					title="Performance von Daniel Silva Yañez"
-				/><InstagramEmbed
-					url="https://www.instagram.com/p/DY2W3M_qdgv/"
-					title="Musikvideo von Daniel Silva Yañez"
-				/>
+				{instagramPosts.map((url, index) => (
+					<InstagramEmbed url={url} title={`Live Performance ${index + 1}`} />
+				))}
 			</div>
 		</section>
 
@@ -625,14 +624,13 @@ const { seo } = siteSettings
 		font-size: 0.95rem;
 	}
 	.section--gallery {
-		display: grid;
-		grid-template-columns: 0.75fr 1.25fr;
-		gap: 4rem;
+		display: block;
 	}
 	.gallery__heading p:last-child {
 		margin-top: 1.5rem;
 	}
 	.gallery__images {
+		margin-top: 4rem;
 		display: grid;
 		grid-template-columns: repeat(2, minmax(0, 1fr));
 		gap: 1rem;
@@ -640,6 +638,11 @@ const { seo } = siteSettings
 	}
 	.gallery__images > .instagram-embed {
 		aspect-ratio: 4 / 5;
+	}
+	@media (min-width: 1200px) {
+		.gallery__images {
+			grid-template-columns: repeat(4, minmax(0, 1fr));
+		}
 	}
 	.section--about {
 		display: grid;
